@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BridgePointAI — Integrating Technology. Accelerating Opportunity.</title>
+<meta name="description" content="BridgePointAI bridges technology gaps and unlocks commercial value across Energy, Finance, PropTech and Healthcare.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   RESET & BASE
+   ═══════════════════════════════════════════════════════════════ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 400;
+  color: #f5f2ed;
+  background: #0a0a0a;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+/* Noise texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+
+/* ═══════════════════════════════════════════════════════════════
+   TYPOGRAPHY
+   ═══════════════════════════════════════════════════════════════ */
+h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 300; }
+.dm-mono { font-family: 'DM Mono', monospace; }
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c9a84c;
+  padding-left: 1.25rem;
+  border-left: 2px solid #c9a84c;
+  margin-bottom: 1.5rem;
+}
+h2 {
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+.muted { color: #8a8f9e; }
+
+/* ═══════════════════════════════════════════════════════════════
+   LAYOUT
+   ═══════════════════════════════════════════════════════════════ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 7rem 0;
+  position: relative;
+}
+section.surface { background: #1c1f26; }
+
+/* ═══════════════════════════════════════════════════════════════
+   NAV
+   ═══════════════════════════════════════════════════════════════ */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(10,10,10,0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+}
+nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+.nav-logo { flex-shrink: 0; }
+.nav-logo svg { display: block; overflow: visible; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+.nav-links a {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #8a8f9e;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: #c9a84c; }
+.nav-cta {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #c9a84c !important;
+  border: 1px solid #c9a84c;
+  padding: 0.5rem 1.25rem;
+  transition: all 0.3s;
+}
+.nav-cta:hover {
+  background: rgba(201,168,76,0.1);
+}
+/* Mobile nav */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #c9a84c;
+  margin: 5px 0;
+  transition: 0.3s;
+}
+@media (max-width: 900px) {
+  .nav-toggle { display: block; }
+  .nav-links {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: rgba(10,10,10,0.97);
+    backdrop-filter: blur(16px);
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.5rem;
+    transform: translateY(-120%);
+    transition: transform 0.4s ease;
+    border-bottom: 1px solid rgba(201,168,76,0.12);
+  }
+  .nav-links.open { transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BUTTONS
+   ═══════════════════════════════════════════════════════════════ */
+.btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 0.85rem 2rem;
+  border: 1px solid #c9a84c;
+  background: transparent;
+  color: #c9a84c;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: inline-block;
+  text-align: center;
+}
+.btn:hover {
+  background: rgba(201,168,76,0.1);
+  border-color: rgba(201,168,76,0.6);
+}
+.btn-filled {
+  background: #c9a84c;
+  color: #0a0a0a;
+}
+.btn-filled:hover {
+  background: #e8d5a3;
+  border-color: #e8d5a3;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CARDS
+   ═══════════════════════════════════════════════════════════════ */
+.card {
+  background: #111114;
+  border: 1px solid rgba(201,168,76,0.15);
+  padding: 2rem;
+  transition: all 0.4s;
+}
+.card:hover {
+  border-color: rgba(201,168,76,0.4);
+  background: rgba(201,168,76,0.04);
+}
+.surface .card { background: #161820; }
+
+/* ═══════════════════════════════════════════════════════════════
+   REVEAL ANIMATIONS
+   ═══════════════════════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════════════════════════ */
+#home {
+  position: relative;
+  overflow: hidden;
+  padding-top: 10rem;
+}
+#home::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+}
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+}
+.hero-orb-gold {
+  width: 500px;
+  height: 500px;
+  background: rgba(201,168,76,0.08);
+  top: 10%;
+  right: -5%;
+}
+.hero-orb-blue {
+  width: 400px;
+  height: 400px;
+  background: rgba(70,100,180,0.06);
+  bottom: 5%;
+  left: -10%;
+}
+.hero-content { position: relative; z-index: 1; max-width: 800px; }
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: #c9a84c;
+  margin-bottom: 1.5rem;
+}
+#home h1 {
+  font-size: clamp(2.5rem, 5.5vw, 4.2rem);
+  line-height: 1.1;
+  margin-bottom: 1.75rem;
+  font-weight: 300;
+}
+.hero-sub {
+  font-size: 1.1rem;
+  color: #8a8f9e;
+  max-width: 640px;
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
+}
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 4rem; }
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  border-top: 1px solid rgba(201,168,76,0.12);
+  padding-top: 2.5rem;
+}
+.stat-item .stat-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #c9a84c;
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+.stat-item .stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #8a8f9e;
+}
+@media (max-width: 700px) {
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ABOUT
+   ═══════════════════════════════════════════════════════════════ */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+.pillar-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+  font-weight: 400;
+}
+.pillar-card p {
+  color: #8a8f9e;
+  font-size: 0.95rem;
+}
+.pillar-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 1rem;
+  stroke: #c9a84c;
+  fill: none;
+  stroke-width: 1.5;
+}
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+.value-card {
+  padding: 1.75rem;
+}
+.value-numeral {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  color: #c9a84c;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.value-card h4 {
+  font-size: 1.15rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+.value-card p { color: #8a8f9e; font-size: 0.88rem; }
+@media (max-width: 768px) {
+  .pillars-grid { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .values-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LEADERSHIP
+   ═══════════════════════════════════════════════════════════════ */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.team-card { padding: 2.5rem 2rem; }
+.team-card .team-initials {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #c9a84c;
+  width: 72px;
+  height: 72px;
+  border: 1px solid rgba(201,168,76,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.team-card h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 0.25rem;
+}
+.team-card .team-role {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #c9a84c;
+  margin-bottom: 1.25rem;
+}
+.team-card p {
+  color: #8a8f9e;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+@media (max-width: 900px) {
+  .team-grid { grid-template-columns: 1fr; max-width: 600px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PORTFOLIO
+   ═══════════════════════════════════════════════════════════════ */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+.portfolio-card { padding: 1.75rem; }
+.portfolio-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #c9a84c;
+  border: 1px solid rgba(201,168,76,0.25);
+  padding: 0.2rem 0.6rem;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+.portfolio-card h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+.portfolio-card p { color: #8a8f9e; font-size: 0.88rem; }
+@media (max-width: 900px) {
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 550px) {
+  .portfolio-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SERVICES
+   ═══════════════════════════════════════════════════════════════ */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.service-card {
+  padding: 2.5rem 1.75rem;
+  text-align: center;
+  position: relative;
+}
+.service-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 300;
+  color: rgba(201,168,76,0.2);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+.service-card h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 0.75rem;
+}
+.service-card p { color: #8a8f9e; font-size: 0.9rem; }
+@media (max-width: 900px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 550px) {
+  .services-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   AI SPRINT
+   ═══════════════════════════════════════════════════════════════ */
+#ai-sprint .sprint-intro {
+  max-width: 720px;
+  margin-bottom: 3rem;
+}
+#ai-sprint .sprint-intro h2 {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+}
+.sprint-subheading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  font-style: italic;
+  font-weight: 300;
+  color: #e8d5a3;
+  margin-bottom: 1.5rem;
+}
+.sprint-desc {
+  color: #8a8f9e;
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+.sprint-outputs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+.sprint-output-card {
+  padding: 2rem;
+  text-align: center;
+}
+.sprint-output-card h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+.sprint-output-card p { color: #8a8f9e; font-size: 0.88rem; }
+.sprint-output-icon {
+  width: 36px;
+  height: 36px;
+  margin: 0 auto 1rem;
+  stroke: #c9a84c;
+  fill: none;
+  stroke-width: 1.5;
+}
+.case-study {
+  border: 1px solid rgba(201,168,76,0.25);
+  background: rgba(201,168,76,0.03);
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+.case-study::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: #c9a84c;
+}
+.case-study-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #c9a84c;
+  margin-bottom: 1rem;
+}
+.case-study p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.7;
+  color: #e8d5a3;
+}
+.sprint-pricing {
+  color: #8a8f9e;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+@media (max-width: 768px) {
+  .sprint-outputs { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CONTACT
+   ═══════════════════════════════════════════════════════════════ */
+#contact .contact-inner { text-align: center; max-width: 700px; margin: 0 auto; }
+#contact h2 {
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  margin-bottom: 1rem;
+}
+#contact .contact-sub {
+  color: #8a8f9e;
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+.contact-email {
+  font-family: 'DM Mono', monospace;
+  font-size: 1rem;
+  color: #c9a84c;
+  margin-bottom: 2.5rem;
+  display: block;
+}
+.contact-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 4rem; }
+.contact-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  text-align: center;
+}
+.contact-option-card { padding: 2rem; }
+.contact-option-card h3 {
+  font-size: 1.15rem;
+  font-weight: 400;
+  margin-bottom: 0.4rem;
+}
+.contact-option-card p { color: #8a8f9e; font-size: 0.88rem; }
+.contact-option-icon {
+  width: 32px;
+  height: 32px;
+  margin: 0 auto 1rem;
+  stroke: #c9a84c;
+  fill: none;
+  stroke-width: 1.5;
+}
+@media (max-width: 650px) {
+  .contact-options { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════════════ */
+footer {
+  background: #0a0a0a;
+  border-top: 1px solid rgba(201,168,76,0.12);
+  padding: 4rem 0 2rem;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr repeat(4, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+.footer-brand p {
+  color: #8a8f9e;
+  font-size: 0.88rem;
+  margin-top: 1rem;
+  max-width: 280px;
+}
+.footer-col h4 {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #c9a84c;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+.footer-col a {
+  display: block;
+  color: #8a8f9e;
+  font-size: 0.88rem;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s;
+}
+.footer-col a:hover { color: #c9a84c; }
+.footer-bottom {
+  border-top: 1px solid rgba(201,168,76,0.08);
+  padding-top: 1.5rem;
+  text-align: center;
+  color: #4a4f5e;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+}
+@media (max-width: 768px) {
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .footer-brand { grid-column: span 2; }
+}
+@media (max-width: 480px) {
+  .footer-top { grid-template-columns: 1fr; }
+  .footer-brand { grid-column: span 1; }
+}
+
+/* ── Clean professional font override ── */
+h2, h3, h4 {
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+}
+/* Keep Cormorant ONLY for hero wordmark */
+.hero-wordmark {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-weight: 300 !important;
+  letter-spacing: 0.04em !important;
+}
+/* Tighten body copy */
+body {
+  font-size: 15px;
+  line-height: 1.7;
+}
+/* Card titles cleaner */
+.team-card h3, .portfolio-card h3, .value-card h3 {
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+
+/* ── Bridge motif ── */
+.bridge-motif { display: inline-flex; align-items: center; opacity: 0.6; }
+.section-bridge { display: flex; align-items: center; justify-content: center; margin: 0 auto 2.5rem; }
+.bridge-divider { display: flex; align-items: center; gap: 16px; margin: 2rem 0; }
+.bridge-divider::before, .bridge-divider::after { content: ''; flex: 1; height: 1px; background: rgba(201,168,76,0.15); }
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     NAV
+     ═══════════════════════════════════════════════════════════════ -->
+<nav>
+  <div class="container">
+    <a href="#home" class="nav-logo">
+      <svg width="260" height="52" viewBox="0 0 260 52" aria-label="BridgePointAI">
+        <line x1="8" y1="46" x2="8" y2="14" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/>
+        <line x1="48" y1="46" x2="48" y2="14" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/>
+        <line x1="2" y1="38" x2="54" y2="38" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="8" y1="14" x2="2" y2="38" stroke="#c9a84c" stroke-width="1" opacity="0.45"/>
+        <line x1="8" y1="14" x2="18" y2="38" stroke="#c9a84c" stroke-width="1" opacity="0.45"/>
+        <line x1="8" y1="14" x2="28" y2="38" stroke="#c9a84c" stroke-width="1" opacity="0.3"/>
+        <line x1="48" y1="14" x2="54" y2="38" stroke="#c9a84c" stroke-width="1" opacity="0.45"/>
+        <line x1="48" y1="14" x2="38" y2="38" stroke="#c9a84c" stroke-width="1" opacity="0.45"/>
+        <line x1="48" y1="14" x2="28" y2="38" stroke="#c9a84c" stroke-width="1" opacity="0.3"/>
+        <circle cx="8" cy="14" r="2.5" fill="#c9a84c"/>
+        <circle cx="48" cy="14" r="2.5" fill="#c9a84c"/>
+        <text x="64" y="30" font-family="Cormorant Garamond, serif" font-size="22" font-weight="300" fill="#f5f2ed">BridgePoint<tspan font-weight="600" fill="#c9a84c">AI</tspan></text>
+      </svg>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#services">Services</a>
+      <a href="#ai-sprint">AI Sprint</a>
+      <a href="#contact" class="nav-cta">Get in Touch</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="home">
+  <div class="hero-orb hero-orb-gold"></div>
+  <div class="hero-orb hero-orb-blue"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow reveal">Strategic Technology Integration</div>
+      <h1 class="reveal reveal-delay-1">We Bridge Technology Gaps.<br>We Accelerate Commercial Value.</h1>
+      <p class="hero-sub reveal reveal-delay-2">We don't produce reports and walk away. We embed with portfolio companies, roll up our sleeves, and drive measurable commercial outcomes through technology integration — across Energy, Finance, PropTech and Healthcare.</p>
+      <div class="hero-btns reveal reveal-delay-3">
+        <a href="#portfolio" class="btn">Explore Our Portfolio</a>
+        <a href="#contact" class="btn btn-filled">Get in Touch</a>
+      </div>
+      <div class="stats-strip reveal reveal-delay-4">
+        <div class="stat-item">
+          <div class="stat-value">35+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">4</div>
+          <div class="stat-label">Sectors</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">&pound;2.4B</div>
+          <div class="stat-label">Exit Track Record</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">14+</div>
+          <div class="stat-label">Active Projects</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     ABOUT
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="about" class="surface">
+  <div class="container">
+    <div class="section-bridge reveal"><span class="bridge-motif" aria-hidden="true">
+  <svg width="52" height="28" viewBox="0 0 52 28" xmlns="http://www.w3.org/2000/svg">
+    <line x1="8" y1="24" x2="8" y2="8" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="44" y1="24" x2="44" y2="8" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="2" y1="20" x2="50" y2="20" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round"/>
+    <line x1="8" y1="8" x2="2" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="8" y1="8" x2="16" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="8" y1="8" x2="26" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.3"/>
+    <line x1="44" y1="8" x2="50" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="44" y1="8" x2="36" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="44" y1="8" x2="26" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="8" cy="8" r="2" fill="#c9a84c"/>
+    <circle cx="44" cy="8" r="2" fill="#c9a84c"/>
+  </svg>
+</span></div>
+    <div class="section-label reveal">Who We Are</div>
+    <h2 class="reveal">Not Advisors. Operators.</h2>
+    <p class="muted reveal" style="max-width:640px;margin-bottom:1rem;">We don't produce reports and walk away. We embed with portfolio companies, roll up our sleeves, and drive measurable commercial outcomes through technology integration.</p>
+
+    <div class="pillars-grid">
+      <div class="card pillar-card reveal">
+        <svg class="pillar-icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <h3>Strategic Collaboration</h3>
+        <p>We build long-term partnerships across industries, connecting founders, investors and operators to accelerate outcomes.</p>
+      </div>
+      <div class="card pillar-card reveal reveal-delay-1">
+        <svg class="pillar-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
+        <h3>Integration Excellence</h3>
+        <p>Three decades of technology integration expertise deployed across enterprise platforms, APIs and data architectures.</p>
+      </div>
+      <div class="card pillar-card reveal reveal-delay-2">
+        <svg class="pillar-icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        <h3>Rapid Execution</h3>
+        <p>We compress timelines through proven frameworks and an operator-led approach. Months become weeks. Weeks become days.</p>
+      </div>
+    </div>
+
+    <div class="values-grid">
+      <div class="card value-card reveal">
+        <div class="value-numeral">I</div>
+        <h4>Opportunity Obsessed</h4>
+        <p>We don't sit on boards and send monthly reports. We're in the room, on the calls, and in the weeds — until the outcome is real and the value is measurable.</p>
+      </div>
+      <div class="card value-card reveal reveal-delay-1">
+        <div class="value-numeral">II</div>
+        <h4>Built on Trust</h4>
+        <p>Long-term relationships underpin every deal. We earn trust through transparency, consistency and results.</p>
+      </div>
+      <div class="card value-card reveal reveal-delay-2">
+        <div class="value-numeral">III</div>
+        <h4>Bias for Action</h4>
+        <p>Analysis has diminishing returns. We gather the essentials, make the call, and move. Velocity creates value.</p>
+      </div>
+      <div class="card value-card reveal reveal-delay-3">
+        <div class="value-numeral">IV</div>
+        <h4>Cross-Industry Curiosity</h4>
+        <p>The most powerful insights emerge at the boundaries between sectors. We live at those boundaries.</p>
+      </div>
+      <div class="card value-card reveal reveal-delay-4">
+        <div class="value-numeral">V</div>
+        <h4>Smart Not Flashy</h4>
+        <p>Substance over style. We invest in outcomes, not optics. Quiet competence compounds faster than noise.</p>
+      </div>
+      <div class="card value-card reveal">
+        <div class="value-numeral">VI</div>
+        <h4>Entrepreneurial to the Core</h4>
+        <p>We think like founders because we are founders. Risk, reward and resourcefulness are in our DNA.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     LEADERSHIP
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="leadership">
+  <div class="container">
+    <div class="section-bridge reveal"><span class="bridge-motif" aria-hidden="true">
+  <svg width="52" height="28" viewBox="0 0 52 28" xmlns="http://www.w3.org/2000/svg">
+    <line x1="8" y1="24" x2="8" y2="8" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="44" y1="24" x2="44" y2="8" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="2" y1="20" x2="50" y2="20" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round"/>
+    <line x1="8" y1="8" x2="2" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="8" y1="8" x2="16" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="8" y1="8" x2="26" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.3"/>
+    <line x1="44" y1="8" x2="50" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="44" y1="8" x2="36" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="44" y1="8" x2="26" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="8" cy="8" r="2" fill="#c9a84c"/>
+    <circle cx="44" cy="8" r="2" fill="#c9a84c"/>
+  </svg>
+</span></div>
+    <div class="section-label reveal">Leadership</div>
+    <h2 class="reveal" style="font-family:'Instrument Sans',sans-serif;font-weight:600;letter-spacing:-0.02em;">Leadership</h2>
+    <p class="reveal" style="color:#8a8f9e;font-size:1.1rem;max-width:600px;margin-bottom:3rem;">Founders, operators and strategists with a combined track record of building and exiting billion-dollar businesses.</p>
+    <div class="team-grid">
+      <div class="card team-card reveal">
+        <div class="team-initials">KD</div>
+        <h3>Kevin Doyle</h3>
+        <div class="team-role">Founder &amp; CEO</div>
+        <p>A Chartered Chemist turned serial technology entrepreneur. Kevin has founded, scaled and exited multiple ventures across Oil &amp; Gas, Financial Services, Retail, Utilities and Healthcare. He pioneered the world's first B2B e-procurement platform &mdash; acquired by Chase Manhattan Bank &mdash; and founded an integration technology firm that became a key Microsoft partner, reaching a &pound;2.4 billion market cap before a successful strategic exit. He co-invented globally distributed immunoassay test kits and holds multiple patents across healthcare and enterprise software. Today he leads NetZero Platforms, advancing Modular Plasma Gasification for industrial sustainability.</p>
+      </div>
+      <div class="card team-card reveal reveal-delay-1">
+        <div class="team-initials">ME</div>
+        <h3>Mark Evans-Smith</h3>
+        <div class="team-role">Chief Growth Officer</div>
+        <p>Strategic growth and innovation leader with senior roles at Rolls-Royce Aerospace, BP Sustainability Strategy, GSK and Haleon. Former board member of AIM-listed Toople PLC. Mark shapes BridgePointAI's market positioning, strategic partnerships and commercial execution.</p>
+      </div>
+      <div class="card team-card reveal reveal-delay-2">
+        <div class="team-initials">VF</div>
+        <h3>Virginia Filmer-Sankey</h3>
+        <div class="team-role">Chief Financial Officer</div>
+        <p>Company director and strategic advisor with 10+ years of leadership across UK ventures. Governance roles at Adaro Group and Simply Channels. Virginia provides corporate stewardship and financial continuity across the BridgePointAI portfolio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PORTFOLIO
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="portfolio" class="surface">
+  <div class="container">
+    <div class="section-bridge reveal"><span class="bridge-motif" aria-hidden="true">
+  <svg width="52" height="28" viewBox="0 0 52 28" xmlns="http://www.w3.org/2000/svg">
+    <line x1="8" y1="24" x2="8" y2="8" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="44" y1="24" x2="44" y2="8" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="2" y1="20" x2="50" y2="20" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round"/>
+    <line x1="8" y1="8" x2="2" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="8" y1="8" x2="16" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="8" y1="8" x2="26" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.3"/>
+    <line x1="44" y1="8" x2="50" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="44" y1="8" x2="36" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="44" y1="8" x2="26" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="8" cy="8" r="2" fill="#c9a84c"/>
+    <circle cx="44" cy="8" r="2" fill="#c9a84c"/>
+  </svg>
+</span></div>
+    <div class="section-label reveal">Our Ecosystem</div>
+    <h2 class="reveal">Fourteen companies. Four sectors.<br>One compounding ecosystem.</h2>
+    <div class="portfolio-grid">
+      <div class="card portfolio-card reveal">
+        <span class="portfolio-badge">Technology / Data</span>
+        <h3>TrueLens</h3>
+        <p>AI-powered insight and data visualisation</p>
+      </div>
+      <div class="card portfolio-card reveal">
+        <span class="portfolio-badge">Fintech</span>
+        <h3>Finecta</h3>
+        <p>Strategic fintech integrations &amp; APIs</p>
+      </div>
+      <div class="card portfolio-card reveal">
+        <span class="portfolio-badge">Blockchain</span>
+        <h3>ByzGen</h3>
+        <p>Enterprise blockchain solutions</p>
+      </div>
+      <div class="card portfolio-card reveal">
+        <span class="portfolio-badge">Energy</span>
+        <h3>NetZero Platforms</h3>
+        <p>Ultra-high temperature modular plasma gasification</p>
+      </div>
+      <div class="card portfolio-card reveal">
+        <span class="portfolio-badge">Energy</span>
+        <h3>Stratford Energy Solutions</h3>
+        <p>Renewable energy integration &amp; smart grid</p>
+      </div>
+      <div class="card portfolio-card reveal">
+        <span class="portfolio-badge">Smart Cities</span>
+        <h3>CityFi</h3>
+        <p>Smart city infrastructure &amp; finance</p>
+      </div>
+      <div class="card portfolio-card reveal">
+        <span class="portfolio-badge">Healthcare AI</span>
+        <h3>ThakaaMed</h3>
+        <p>Healthcare technology acceleration</p>
+      </div>
+      <div class="card portfolio-card reveal">
+        <span class="portfolio-badge">Medical Devices</span>
+        <h3>Stoma Alert</h3>
+        <p>Patient-alert medical device technology</p>
+      </div>
+      <div class="card portfolio-card reveal">
+        <span class="portfolio-badge">Business Intelligence</span>
+        <h3>OptimaBi</h3>
+        <p>BI and analytics platform solutions</p>
+      </div>
+      <div class="card portfolio-card reveal">
+        <span class="portfolio-badge">Built Environment</span>
+        <h3>Merit</h3>
+        <p>Modular construction innovation</p>
+      </div>
+      <div class="card portfolio-card reveal">
+        <span class="portfolio-badge">Data Analytics</span>
+        <h3>Adaro Group</h3>
+        <p>Advanced analytics &amp; market intelligence</p>
+      </div>
+      <div class="card portfolio-card reveal">
+        <span class="portfolio-badge">E-Commerce</span>
+        <h3>IP Commerceworks</h3>
+        <p>E-commerce integration solutions</p>
+      </div>
+      <div class="card portfolio-card reveal">
+        <span class="portfolio-badge">Venture Capital</span>
+        <h3>Start-Up Giants PLC</h3>
+        <p>Strategic commercialisation &amp; startup scaling</p>
+      </div>
+      <div class="card portfolio-card reveal">
+        <span class="portfolio-badge">IT / Cloud</span>
+        <h3>Cased Dimensions</h3>
+        <p>IT service management &amp; cloud solutions</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SERVICES
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="services">
+  <div class="container">
+    <div class="section-bridge reveal"><span class="bridge-motif" aria-hidden="true">
+  <svg width="52" height="28" viewBox="0 0 52 28" xmlns="http://www.w3.org/2000/svg">
+    <line x1="8" y1="24" x2="8" y2="8" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="44" y1="24" x2="44" y2="8" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="2" y1="20" x2="50" y2="20" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round"/>
+    <line x1="8" y1="8" x2="2" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="8" y1="8" x2="16" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="8" y1="8" x2="26" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.3"/>
+    <line x1="44" y1="8" x2="50" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="44" y1="8" x2="36" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="44" y1="8" x2="26" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="8" cy="8" r="2" fill="#c9a84c"/>
+    <circle cx="44" cy="8" r="2" fill="#c9a84c"/>
+  </svg>
+</span></div>
+    <div class="section-label reveal">What We Do</div>
+    <h2 class="reveal">From Identification to Exit</h2>
+    <div class="services-grid">
+      <div class="card service-card reveal">
+        <div class="service-num">01</div>
+        <h3>Identify</h3>
+        <p>We find the gaps others miss — at the intersection of sectors, technologies and markets. Pattern recognition built over 35 years of exits and deployments.</p>
+      </div>
+      <div class="card service-card reveal reveal-delay-1">
+        <div class="service-num">02</div>
+        <h3>Integrate</h3>
+        <p>No prototypes, no pilots that go nowhere. We deploy proven, battle-tested technology and embed alongside the team until it works.</p>
+      </div>
+      <div class="card service-card reveal reveal-delay-2">
+        <div class="service-num">03</div>
+        <h3>Accelerate</h3>
+        <p>Our ecosystem of executives, operators and investors opens doors that take competitors years to knock on. We don't just advise — we make introductions that close.</p>
+      </div>
+      <div class="card service-card reveal reveal-delay-3">
+        <div class="service-num">04</div>
+        <h3>Exit</h3>
+        <p>Every engagement is built with the end in mind. We structure commercial outcomes, build demonstrable traction, and position companies for high-value acquisition or the next stage of scale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     AI SPRINT
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="ai-sprint" class="surface">
+  <div class="container">
+    <div class="section-bridge reveal"><span class="bridge-motif" aria-hidden="true">
+  <svg width="52" height="28" viewBox="0 0 52 28" xmlns="http://www.w3.org/2000/svg">
+    <line x1="8" y1="24" x2="8" y2="8" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="44" y1="24" x2="44" y2="8" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="2" y1="20" x2="50" y2="20" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round"/>
+    <line x1="8" y1="8" x2="2" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="8" y1="8" x2="16" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="8" y1="8" x2="26" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.3"/>
+    <line x1="44" y1="8" x2="50" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="44" y1="8" x2="36" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="44" y1="8" x2="26" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="8" cy="8" r="2" fill="#c9a84c"/>
+    <circle cx="44" cy="8" r="2" fill="#c9a84c"/>
+  </svg>
+</span></div>
+    <div class="section-label reveal">Flagship Service</div>
+    <div class="sprint-intro">
+      <h2 class="reveal">The AI Sprint</h2>
+      <p class="sprint-subheading reveal">A structured session where senior expertise meets AI execution. You leave with something real.</p>
+      <p class="sprint-desc reveal">Most companies spend months briefing agencies, waiting for deliverables, and reviewing drafts. The AI Sprint compresses that into hours. A small, senior team co-directs an AI co-pilot in real time &mdash; human intelligence sets the direction, AI executes instantly. The result: a deployed website, a pitch deck, a financial model, or a go-to-market strategy &mdash; built live, in one session.</p>
+    </div>
+
+    <div class="sprint-outputs">
+      <div class="card sprint-output-card reveal">
+        <svg class="sprint-output-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+        <h3>Brand &amp; Web</h3>
+        <p>Full website design, build and deployment in a single session. Live URL, real content, production-quality.</p>
+      </div>
+      <div class="card sprint-output-card reveal reveal-delay-1">
+        <svg class="sprint-output-icon" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        <h3>Commercial Strategy</h3>
+        <p>Go-to-market plans, competitive positioning and revenue model frameworks — actionable, not theoretical.</p>
+      </div>
+      <div class="card sprint-output-card reveal reveal-delay-2">
+        <svg class="sprint-output-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <h3>Pitch &amp; Investment Materials</h3>
+        <p>Investor-ready decks, financial models and data rooms — built with the rigour investors expect.</p>
+      </div>
+    </div>
+
+    <div class="case-study reveal">
+      <div class="case-study-label">Case Study</div>
+      <p>In March 2026, a four-person team built and deployed a full commercial website for a Net Zero technology company in a single afternoon &mdash; from wireframe to live URL, with real-time brand iteration, version control, and booking integration. No agency. No dev team. 4 hours.</p>
+    </div>
+
+    <p class="sprint-pricing reveal">Half-day engagement. Senior-team facilitated. Defined deliverable. Contact us for availability.</p>
+    <a href="#contact" class="btn btn-filled reveal">Book an AI Sprint</a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     CONTACT
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="section-label reveal" style="text-align:left;display:inline-block;">Contact</div>
+      <h2 class="reveal">Ready to bridge the gap?</h2>
+      <p class="contact-sub reveal">Get in touch to discuss your technology integration challenge or strategic objective.</p>
+      <a href="mailto:info@bridgepointai.io" class="contact-email reveal">info@bridgepointai.io</a>
+      <div class="contact-btns reveal">
+        <a href="mailto:info@bridgepointai.io" class="btn">Send an Email</a>
+        <a href="#" class="btn btn-filled" onclick="alert('Calendly integration coming soon.');return false;">Book a Call</a>
+      </div>
+      <div class="contact-options">
+        <div class="card contact-option-card reveal">
+          <svg class="contact-option-icon" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          <h3>Portfolio Enquiry</h3>
+          <p>Learn more about our companies and investment thesis</p>
+        </div>
+        <div class="card contact-option-card reveal reveal-delay-1">
+          <svg class="contact-option-icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <h3>Partnership</h3>
+          <p>Explore strategic collaboration and co-investment opportunities</p>
+        </div>
+        <div class="card contact-option-card reveal reveal-delay-2">
+          <svg class="contact-option-icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <h3>AI Sprint Booking</h3>
+          <p>Schedule a half-day AI Sprint for your organisation</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <svg width="200" height="40" viewBox="0 0 260 52" aria-label="BridgePointAI">
+          <line x1="8" y1="46" x2="8" y2="14" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/>
+          <line x1="48" y1="46" x2="48" y2="14" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/>
+          <line x1="2" y1="38" x2="54" y2="38" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="8" y1="14" x2="2" y2="38" stroke="#c9a84c" stroke-width="1" opacity="0.45"/>
+          <line x1="8" y1="14" x2="18" y2="38" stroke="#c9a84c" stroke-width="1" opacity="0.45"/>
+          <line x1="8" y1="14" x2="28" y2="38" stroke="#c9a84c" stroke-width="1" opacity="0.3"/>
+          <line x1="48" y1="14" x2="54" y2="38" stroke="#c9a84c" stroke-width="1" opacity="0.45"/>
+          <line x1="48" y1="14" x2="38" y2="38" stroke="#c9a84c" stroke-width="1" opacity="0.45"/>
+          <line x1="48" y1="14" x2="28" y2="38" stroke="#c9a84c" stroke-width="1" opacity="0.3"/>
+          <circle cx="8" cy="14" r="2.5" fill="#c9a84c"/>
+          <circle cx="48" cy="14" r="2.5" fill="#c9a84c"/>
+          <text x="64" y="30" font-family="Cormorant Garamond, serif" font-size="22" font-weight="300" fill="#f5f2ed">BridgePoint<tspan font-weight="600" fill="#c9a84c">AI</tspan></text>
+          <text x="65" y="44" font-family="DM Mono, monospace" font-size="7" letter-spacing="2.5" fill="#4a4f5e">INTEGRATING TECHNOLOGY · ACCELERATING OPPORTUNITY</text>
+        </svg>
+        <p>Bridging technology gaps and unlocking commercial value across Energy, Finance, PropTech and Healthcare.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#about">About</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#portfolio">Portfolio</a>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#services">Identify</a>
+        <a href="#services">Integrate</a>
+        <a href="#services">Accelerate</a>
+        <a href="#services">Exit</a>
+      </div>
+      <div class="footer-col">
+        <h4>Portfolio</h4>
+        <a href="#portfolio">TrueLens</a>
+        <a href="#portfolio">Finecta</a>
+        <a href="#portfolio">NetZero Platforms</a>
+        <a href="#portfolio">ThakaaMed</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:info@bridgepointai.io">Email Us</a>
+        <a href="#contact">Portfolio Enquiry</a>
+        <a href="#ai-sprint">AI Sprint</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 BridgePointAI. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SCRIPTS
+     ═══════════════════════════════════════════════════════════════ -->
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Close mobile nav on link click
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.querySelector('.nav-links').classList.remove('open');
+  });
+});
+
+// Active nav link highlight
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const top = section.offsetTop - 100;
+    if (scrollY >= top) current = section.getAttribute('id');
+  });
+  navLinks.forEach(link => {
+    link.style.color = link.getAttribute('href') === '#' + current ? '#c9a84c' : '';
+  });
+});
+</script>
+</body>
+</html>
