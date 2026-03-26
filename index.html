@@ -714,6 +714,475 @@ body {
 .bridge-divider { display: flex; align-items: center; gap: 16px; margin: 2rem 0; }
 .bridge-divider::before, .bridge-divider::after { content: ''; flex: 1; height: 1px; background: rgba(201,168,76,0.15); }
 
+/* ═══════════════════════════════════════════════════════════════
+   INTEGRATION GAP (E1)
+   ═══════════════════════════════════════════════════════════════ */
+#integration-gap {
+  background: #131720;
+}
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+}
+.pain-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(201,168,76,0.15);
+  padding: 2rem;
+  transition: border-color 0.3s, background 0.3s;
+}
+.pain-card:hover {
+  border-color: rgba(201,168,76,0.35);
+  background: rgba(201,168,76,0.04);
+}
+.pain-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 1.25rem;
+  stroke: #c9a84c;
+  fill: none;
+  stroke-width: 1.5;
+}
+.pain-card h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.65rem;
+  color: #f5f2ed;
+}
+.pain-card p {
+  color: #8a8f9e;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+.gap-callout {
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-left: 4px solid #c9a84c;
+  padding: 1.5rem 2rem;
+  margin-top: 1rem;
+}
+.gap-callout p {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #e8d5a3;
+  margin: 0;
+  line-height: 1.5;
+}
+@media (max-width: 768px) {
+  .pain-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   WHO WE WORK WITH (E2)
+   ═══════════════════════════════════════════════════════════════ */
+#who-we-work-with {
+  background: #f7f5f0;
+  color: #111114;
+}
+#who-we-work-with .section-label {
+  color: #7a6a3a;
+  border-left-color: #7a6a3a;
+}
+#who-we-work-with h2 {
+  color: #111114;
+}
+#who-we-work-with .muted {
+  color: #5a5e6a;
+}
+.tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.tier-card {
+  background: #fff;
+  border: 1px solid #e0dcd4;
+  border-top: 4px solid #e0dcd4;
+  padding: 2.5rem;
+  transition: box-shadow 0.3s, border-top-color 0.3s;
+}
+.tier-card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+}
+.tier-card.blue { border-top-color: #2a5fc1; }
+.tier-card.green { border-top-color: #22885c; }
+.tier-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 0.75rem;
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+}
+.tier-card.blue .tier-tag {
+  color: #2a5fc1;
+  background: rgba(42,95,193,0.08);
+  border: 1px solid rgba(42,95,193,0.2);
+}
+.tier-card.green .tier-tag {
+  color: #22885c;
+  background: rgba(34,136,92,0.08);
+  border: 1px solid rgba(34,136,92,0.2);
+}
+.tier-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #111114;
+  margin-bottom: 0.75rem;
+}
+.tier-card .tier-desc {
+  color: #5a5e6a;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.tier-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.tier-list li {
+  color: #2d3142;
+  font-size: 0.9rem;
+  padding: 0.45rem 0;
+  padding-left: 1.4rem;
+  border-bottom: 1px solid #f0ede8;
+  position: relative;
+}
+.tier-list li:last-child { border-bottom: none; }
+.tier-card.blue .tier-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #2a5fc1;
+  font-size: 0.85rem;
+}
+.tier-card.green .tier-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #22885c;
+  font-size: 0.85rem;
+}
+@media (max-width: 768px) {
+  .tiers-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SPRINT DELIVERABLES (E3)
+   ═══════════════════════════════════════════════════════════════ */
+.sprint-deliverables-heading {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #c9a84c;
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  margin-bottom: 1.5rem;
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(201,168,76,0.15);
+}
+.sprint-deliverables-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #f5f2ed;
+  margin-bottom: 2rem;
+}
+.deliverables-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+.deliverable-card {
+  background: rgba(201,168,76,0.05);
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 2rem;
+  transition: border-color 0.3s, background 0.3s;
+}
+.deliverable-card:hover {
+  border-color: rgba(201,168,76,0.45);
+  background: rgba(201,168,76,0.08);
+}
+.deliverable-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: rgba(201,168,76,0.35);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+.deliverable-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #e8d5a3;
+  margin-bottom: 0.5rem;
+}
+.deliverable-card p {
+  color: #8a8f9e;
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+@media (max-width: 700px) {
+  .deliverables-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   COMMERCIAL FRAMING (E6)
+   ═══════════════════════════════════════════════════════════════ */
+.pricing-box {
+  background: #111114;
+  border: 1px solid rgba(201,168,76,0.25);
+  padding: 2.5rem;
+  margin: 2.5rem 0;
+  position: relative;
+}
+.pricing-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #c9a84c, rgba(201,168,76,0.2));
+}
+.pricing-box h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #f5f2ed;
+  margin-bottom: 0.85rem;
+}
+.pricing-box p {
+  color: #8a8f9e;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+.pricing-stats {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.pricing-stat {
+  background: rgba(201,168,76,0.06);
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 0.75rem 1.5rem;
+  text-align: center;
+}
+.pricing-stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #c9a84c;
+  font-weight: 400;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CASE STUDIES (E4)
+   ═══════════════════════════════════════════════════════════════ */
+#case-studies {
+  background: #0d1628;
+}
+.case-study-card-full {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 3rem;
+  margin-top: 2.5rem;
+  position: relative;
+}
+.case-study-card-full::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 4px;
+  background: #c9a84c;
+}
+.cs-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #c9a84c;
+  border: 1px solid rgba(201,168,76,0.3);
+  padding: 0.25rem 0.75rem;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+.cs-client {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #f5f2ed;
+  margin-bottom: 2rem;
+  font-family: 'Instrument Sans', sans-serif;
+}
+.cs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.cs-block-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #c9a84c;
+  margin-bottom: 0.6rem;
+  font-weight: 400;
+}
+.cs-block p {
+  color: #9aa0b0;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+.cs-what-built {
+  margin-bottom: 2rem;
+}
+.cs-what-built ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+.cs-what-built ul li {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #9aa0b0;
+  background: rgba(201,168,76,0.06);
+  border: 1px solid rgba(201,168,76,0.15);
+  padding: 0.3rem 0.85rem;
+}
+.cs-result {
+  background: rgba(201,168,76,0.06);
+  border-left: 3px solid #c9a84c;
+  padding: 1.25rem 1.75rem;
+  margin-bottom: 2rem;
+}
+.cs-result p {
+  color: #e8d5a3;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.6;
+}
+.cs-quote {
+  border-top: 1px solid rgba(201,168,76,0.15);
+  padding-top: 1.75rem;
+}
+.cs-quote blockquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-style: italic;
+  font-weight: 300;
+  color: #d4cfc5;
+  line-height: 1.6;
+  margin: 0 0 0.75rem 0;
+}
+.cs-quote cite {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #c9a84c;
+  font-style: normal;
+}
+@media (max-width: 768px) {
+  .cs-grid { grid-template-columns: 1fr; }
+  .case-study-card-full { padding: 2rem 1.5rem; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HOW IT WORKS / ENGAGE (E5)
+   ═══════════════════════════════════════════════════════════════ */
+#how-it-works-engage {
+  background: #0a0a0a;
+}
+#how-it-works-engage h2 {
+  margin-bottom: 0.5rem;
+}
+.engage-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin: 3rem 0 2.5rem;
+  position: relative;
+}
+.engage-steps::before {
+  content: '';
+  position: absolute;
+  top: 2rem;
+  left: calc(50px + 1.5rem);
+  right: calc(50px + 1.5rem);
+  height: 1px;
+  background: rgba(201,168,76,0.2);
+  z-index: 0;
+}
+.engage-step {
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+.engage-step:first-child { padding-left: 0; }
+.engage-step:last-child { padding-right: 0; }
+.engage-step-num {
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(201,168,76,0.4);
+  background: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.engage-step-num span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #c9a84c;
+  line-height: 1;
+}
+.engage-step-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f5f2ed;
+  margin-bottom: 0.25rem;
+}
+.engage-step-duration {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #c9a84c;
+  margin-bottom: 0.85rem;
+}
+.engage-step p {
+  color: #8a8f9e;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+@media (max-width: 768px) {
+  .engage-steps {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .engage-steps::before { display: none; }
+  .engage-step { padding: 0; }
+}
+
 </style>
 </head>
 <body>
@@ -746,9 +1215,9 @@ body {
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#leadership">Leadership</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#services">Services</a>
       <a href="#ai-sprint">AI Sprint</a>
+      <a href="#case-studies">Case Study</a>
+      <a href="#how-it-works-engage">How It Works</a>
       <a href="#contact" class="nav-cta">Get in Touch</a>
     </div>
   </div>
@@ -786,6 +1255,80 @@ body {
           <div class="stat-value">14+</div>
           <div class="stat-label">Active Projects</div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     INTEGRATION GAP (Enhancement 1)
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="integration-gap">
+  <div class="container">
+    <div class="section-label reveal">The Problem</div>
+    <h2 class="reveal" style="max-width:780px;">The Integration Gap — why enterprise AI investments stall before they deliver.</h2>
+    <div class="pain-grid">
+      <div class="card pain-card reveal">
+        <svg class="pain-icon" viewBox="0 0 24 24">
+          <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
+        </svg>
+        <h3>Fragmented Execution</h3>
+        <p>Strategy consultants hand over a report. Developers build without commercial context. The gap between vision and deployment costs millions.</p>
+      </div>
+      <div class="card pain-card reveal reveal-delay-1">
+        <svg class="pain-icon" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        <h3>No Proof of Concept</h3>
+        <p>Boardrooms approve AI budgets based on demos and decks. Without a deployed proof of concept, momentum dies before it starts.</p>
+      </div>
+      <div class="card pain-card reveal reveal-delay-2">
+        <svg class="pain-icon" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"/>
+          <polyline points="12 6 12 12 16 14"/>
+        </svg>
+        <h3>Wrong Speed</h3>
+        <p>AI moves fast. Traditional agency and consulting timelines don't. By the time a strategy is delivered, the opportunity has moved on.</p>
+      </div>
+    </div>
+    <div class="gap-callout reveal">
+      <p>BridgePoint AI bridges that gap — from strategy to deployed asset in a single working session.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     WHO WE WORK WITH (Enhancement 2)
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="who-we-work-with">
+  <div class="container">
+    <div class="section-label reveal">Who We Work With</div>
+    <h2 class="reveal">Two clear client tiers.<br>One clear outcome.</h2>
+    <p class="muted reveal" style="max-width:600px;margin-bottom:0;">Whether you're starting your AI journey or accelerating one already underway — we know how to meet you where you are.</p>
+    <div class="tiers-grid">
+      <div class="tier-card blue reveal">
+        <span class="tier-tag">AI-Ready</span>
+        <h3>Starting the journey.</h3>
+        <p class="tier-desc">You want to embed AI but don't know where to start. You have the vision, the team, and the budget — but need a trusted partner to translate ambition into a deployed first step.</p>
+        <ul class="tier-list">
+          <li>Board-level AI strategy</li>
+          <li>First AI deployment</li>
+          <li>Business case validation</li>
+          <li>Executive team alignment</li>
+        </ul>
+      </div>
+      <div class="tier-card green reveal reveal-delay-1">
+        <span class="tier-tag">AI-Running</span>
+        <h3>Accelerating what's started.</h3>
+        <p class="tier-desc">You have AI initiatives underway but they're fragmented, underperforming, or disconnected from commercial outcomes. You need someone who can diagnose, prioritise and accelerate.</p>
+        <ul class="tier-list">
+          <li>AI portfolio review</li>
+          <li>Performance optimisation</li>
+          <li>Integration architecture</li>
+          <li>ROI measurement framework</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -1108,8 +1651,137 @@ body {
       <p>In March 2026, a four-person team built and deployed a full commercial website for a Net Zero technology company in a single afternoon &mdash; from wireframe to live URL, with real-time brand iteration, version control, and booking integration. No agency. No dev team. 4 hours.</p>
     </div>
 
-    <p class="sprint-pricing reveal">Half-day engagement. Senior-team facilitated. Defined deliverable. Contact us for availability.</p>
+    <!-- Enhancement 3: What You Leave With -->
+    <div class="sprint-deliverables-heading reveal">What you leave with</div>
+    <h3 class="sprint-deliverables-title reveal">Four deliverables. One session.</h3>
+    <div class="deliverables-grid">
+      <div class="deliverable-card reveal">
+        <div class="deliverable-num">01</div>
+        <h3>Deployed Asset</h3>
+        <p>A live, working proof of concept — website, pitch deck, financial model, or GTM strategy — built and deployed in the session. Not a plan. A thing that exists.</p>
+      </div>
+      <div class="deliverable-card reveal reveal-delay-1">
+        <div class="deliverable-num">02</div>
+        <h3>Commercial Clarity</h3>
+        <p>Clear answers on where AI creates the most value in your business. Prioritised opportunities ranked by impact and feasibility.</p>
+      </div>
+      <div class="deliverable-card reveal reveal-delay-2">
+        <div class="deliverable-num">03</div>
+        <h3>Execution Roadmap</h3>
+        <p>A 90-day plan for what to build next, who owns what, and how to measure success. Board-ready and investor-aware.</p>
+      </div>
+      <div class="deliverable-card reveal reveal-delay-3">
+        <div class="deliverable-num">04</div>
+        <h3>Team Alignment</h3>
+        <p>Your senior team leaves the session aligned on AI strategy, having co-directed the build. No translation layer between leadership and execution.</p>
+      </div>
+    </div>
+
+    <!-- Enhancement 6: Commercial Framing -->
+    <div class="pricing-box reveal">
+      <h3>Aligned incentives. Transparent pricing.</h3>
+      <p>AI Sprint sessions are priced as a flat engagement fee — covering preparation, the session itself, and post-session documentation. For ongoing partnerships, we offer a core retainer with performance-based upside where appropriate. We work best with teams who are serious about outcomes, not just exploring options.</p>
+      <div class="pricing-stats">
+        <div class="pricing-stat">
+          <div class="pricing-stat-label">Half-day session</div>
+        </div>
+        <div class="pricing-stat">
+          <div class="pricing-stat-label">Deployed asset guaranteed</div>
+        </div>
+      </div>
+    </div>
+
     <a href="#contact" class="btn btn-filled reveal">Book an AI Sprint</a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     CASE STUDIES (Enhancement 4)
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="case-studies">
+  <div class="container">
+    <div class="section-label reveal">Proof of concept</div>
+    <h2 class="reveal">What an AI Sprint delivers in practice.</h2>
+    <div class="case-study-card-full reveal">
+      <span class="cs-tag">AI Sprint Case Study</span>
+      <div class="cs-client">Net Zero Platforms (NZP)</div>
+      <div class="cs-grid">
+        <div class="cs-block">
+          <div class="cs-block-label">The Challenge</div>
+          <p>NZP needed a professional web presence to support their Biffa pitch and investor conversations — in hours, not weeks.</p>
+        </div>
+        <div class="cs-block">
+          <div class="cs-block-label">The Approach</div>
+          <p>A 4-person senior team co-directed BridgePoint AI through a structured half-day build session. Kevin's domain expertise shaped the messaging. Mark's commercial instincts drove the positioning. The AI executed instantly.</p>
+        </div>
+      </div>
+      <div class="cs-what-built">
+        <div class="cs-block-label">What was built</div>
+        <ul>
+          <li>Website deployed live</li>
+          <li>Brand identity created</li>
+          <li>Technology positioning written</li>
+          <li>Commercial messaging refined</li>
+          <li>Investor-ready copy throughout</li>
+        </ul>
+      </div>
+      <div class="cs-result">
+        <p>Fully deployed website live within one working session. <a href="https://www.netzeroplatforms.com" target="_blank" rel="noopener" style="color:#c9a84c;text-decoration:underline;">www.netzeroplatforms.com</a> — ready for the Biffa call the next morning.</p>
+      </div>
+      <div class="cs-quote">
+        <blockquote>"This is multiplayer AI building — there's something genuinely new in this concept."</blockquote>
+        <cite>— Stanley Brown, CTO</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HOW IT WORKS / ENGAGE (Enhancement 5)
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="how-it-works-engage" class="surface">
+  <div class="container">
+    <div class="section-bridge reveal"><span class="bridge-motif" aria-hidden="true">
+  <svg width="52" height="28" viewBox="0 0 52 28" xmlns="http://www.w3.org/2000/svg">
+    <line x1="8" y1="24" x2="8" y2="8" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="44" y1="24" x2="44" y2="8" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="2" y1="20" x2="50" y2="20" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round"/>
+    <line x1="8" y1="8" x2="2" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="8" y1="8" x2="16" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="8" y1="8" x2="26" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.3"/>
+    <line x1="44" y1="8" x2="50" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="44" y1="8" x2="36" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="44" y1="8" x2="26" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="8" cy="8" r="2" fill="#c9a84c"/>
+    <circle cx="44" cy="8" r="2" fill="#c9a84c"/>
+  </svg>
+</span></div>
+    <div class="section-label reveal">How to engage</div>
+    <h2 class="reveal">Working with us is simple.</h2>
+    <p class="muted reveal" style="max-width:560px;margin-bottom:0;">Three steps. Half a day. A deployed asset and a clear path forward.</p>
+    <div class="engage-steps">
+      <div class="engage-step reveal">
+        <div class="engage-step-num"><span>1</span></div>
+        <div class="engage-step-title">Intro Call</div>
+        <div class="engage-step-duration">30 mins</div>
+        <p>Share where you are, what you're trying to achieve, and what's getting in the way. We'll tell you honestly whether an AI Sprint or partnership is the right fit.</p>
+      </div>
+      <div class="engage-step reveal reveal-delay-1">
+        <div class="engage-step-num"><span>2</span></div>
+        <div class="engage-step-title">Sprint Design</div>
+        <div class="engage-step-duration">1 hour</div>
+        <p>We scope the session — what gets built, who needs to be in the room, what success looks like. You leave with a clear brief and a booked date.</p>
+      </div>
+      <div class="engage-step reveal reveal-delay-2">
+        <div class="engage-step-num"><span>3</span></div>
+        <div class="engage-step-title">AI Sprint</div>
+        <div class="engage-step-duration">Half day</div>
+        <p>Your senior team. Our AI capability. One working session. You leave with a deployed asset and a clear path forward.</p>
+      </div>
+    </div>
+    <div class="reveal" style="text-align:center;">
+      <a href="#contact" class="btn btn-filled">Book an Intro Call →</a>
+    </div>
   </div>
 </section>
 
@@ -1234,10 +1906,11 @@ body {
       </div>
       <div class="footer-col">
         <h4>Services</h4>
-        <a href="#services">Identify</a>
-        <a href="#services">Integrate</a>
-        <a href="#services">Accelerate</a>
-        <a href="#services">Exit</a>
+        <a href="#ai-sprint">AI Sprint</a>
+        <a href="#integration-gap">The Problem</a>
+        <a href="#who-we-work-with">Who We Work With</a>
+        <a href="#how-it-works-engage">How It Works</a>
+        <a href="#case-studies">Case Study</a>
       </div>
       <div class="footer-col">
         <h4>Portfolio</h4>
