@@ -4,7 +4,7 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow,noarchive">
- <title>Lab 24 | HH Global Holdings, Controlled Environment</title>
+ <title>Evidence Synthesis | HH Global Holdings</title>
  <link rel="icon" href="assets/img1.png" type="image/png">
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2075,7 +2075,7 @@ footer a:hover::after{right:0}
 .la-hero-copy{position:relative;z-index:3;width:100%}
 .la-k{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
  color:#C5A25B;margin-bottom:16px}
-.la-hero h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(34px,4.8vw,60px);
+.la-hero h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(26px,3.2vw,40px);
  line-height:1.07;color:#fff;font-weight:600;margin:0 0 22px}
 .la-hero h1 em{color:#D8BF94;font-style:italic}
 .la-lead{font-size:15.5px;line-height:1.74;color:#C3CEE0;max-width:58ch;margin:0}
@@ -2243,197 +2243,81 @@ footer a:hover::after{right:0}
 
 </style>
 
-<style>
-/* Clean room band -------------------------------------------------- */
-.cr-photo{position:absolute;inset:0}
-.cr-veil{background:linear-gradient(100deg,rgba(11,31,63,.94) 0%,rgba(11,31,63,.86) 34%,rgba(11,31,63,.48) 62%,rgba(11,31,63,.30) 100%)!important}
-.cr-photo img{width:100%;height:100%;object-fit:cover;display:block;
-  animation:crDrift 26s ease-in-out infinite alternate;will-change:transform}
-@keyframes crDrift{0%{transform:scale(1.04)}100%{transform:scale(1.13)}}
-.cr-pill{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;margin-top:16px;
-  padding:7px 15px;border:1px solid rgba(197,162,91,.55);border-radius:999px;
-  font-size:11px;font-weight:700;letter-spacing:2.4px;text-transform:uppercase;color:#E4CE9E;
-  background:rgba(11,31,63,.45)}
-.cr-pill i{width:6px;height:6px;border-radius:50%;background:#C5A25B;font-style:normal;
-  animation:crPulse 2.4s ease-in-out infinite}
-@keyframes crPulse{0%,100%{opacity:.35;transform:scale(.8)}50%{opacity:1;transform:scale(1.25)}}
-
-/* Airlock sequence -------------------------------------------------- */
-.seq{background:#0B1F3F;padding:56px 0 62px}
-.seq-head{max-width:1180px;margin:0 auto 26px;padding:0 34px}
-.seq-head .k{font-size:10px;font-weight:700;letter-spacing:2.8px;text-transform:uppercase;color:#C5A25B}
-.seq-head h3{font-family:'Playfair Display',Georgia,serif;font-size:27px;color:#fff;
-  margin:9px 0 8px;font-weight:600}
-.seq-head p{font-size:13.5px;color:#A9B7CE;max-width:62ch;line-height:1.65;margin:0}
-.seq-wrap{max-width:1180px;margin:0 auto;padding:0 34px}
-.seq-svg{width:100%;height:auto;display:block}
-.seq-foot{max-width:1180px;margin:14px auto 0;padding:0 34px;
-  font-size:11.5px;color:#7C8CA6;letter-spacing:.2px}
-.seq-foot b{color:#C5A25B;font-weight:600}
-
-.seq-svg .wall{fill:none;stroke:#2B4573;stroke-width:2}
-.seq-svg .room{fill:#0F2951}
-.seq-svg .room.clean{fill:#12315F}
-.seq-svg .floor{fill:#16335E}
-.seq-svg .lbl{font:700 10px/1 Inter,system-ui,sans-serif;letter-spacing:2.4px;
-  text-transform:uppercase;fill:#8FA3C4}
-.seq-svg .iso{font:600 12.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;fill:#C5A25B}
-.seq-svg .cnt{font:400 10.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;fill:#7C8CA6}
-.seq-svg .pa{font:600 11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;fill:#9FD6C0;opacity:0}
-.seq-svg .hepa{fill:#1D3E70;stroke:#33598F;stroke-width:1}
-
-.seq-svg .flow{stroke:#5C8FD0;stroke-width:1.2;stroke-dasharray:5 11;opacity:0;
-  animation:flowFade 10s linear infinite,flowMove 1.6s linear infinite}
-@keyframes flowMove{to{stroke-dashoffset:-32}}
-@keyframes flowFade{0%,62%{opacity:0}70%,100%{opacity:.55}}
-
-.seq-svg .leaf{fill:#24406E;stroke:#3C5F94;stroke-width:1.5}
-.seq-svg .d1a{animation:d1a 10s ease-in-out infinite}
-.seq-svg .d1b{animation:d1b 10s ease-in-out infinite}
-.seq-svg .d2a{animation:d2a 10s ease-in-out infinite}
-.seq-svg .d2b{animation:d2b 10s ease-in-out infinite}
-@keyframes d1a{0%,17%{transform:translateX(0)}24%,48%{transform:translateX(-15px)}55%,100%{transform:translateX(0)}}
-@keyframes d1b{0%,17%{transform:translateX(0)}24%,48%{transform:translateX(15px)}55%,100%{transform:translateX(0)}}
-@keyframes d2a{0%,50%{transform:translateX(0)}57%,68%{transform:translateX(-15px)}75%,100%{transform:translateX(0)}}
-@keyframes d2b{0%,50%{transform:translateX(0)}57%,68%{transform:translateX(15px)}75%,100%{transform:translateX(0)}}
-
-.seq-svg .fig{animation:figWalk 10s ease-in-out infinite}
-@keyframes figWalk{
-  0%{transform:translateX(0);opacity:0}
-  5%{transform:translateX(0);opacity:1}
-  18%{transform:translateX(232px)}
-  24%{transform:translateX(232px)}
-  33%{transform:translateX(392px)}
-  57%{transform:translateX(392px)}
-  67%{transform:translateX(700px)}
-  95%{transform:translateX(700px);opacity:1}
-  100%{transform:translateX(700px);opacity:0}}
-.seq-svg .body-st{fill:#4E6C99}
-.seq-svg .gown{fill:#E8EDF6;opacity:0;animation:gownOn 10s linear infinite}
-@keyframes gownOn{0%,36%{opacity:0}46%,100%{opacity:1}}
-
-.seq-svg .p1{animation:paIn 10s linear infinite}
-.seq-svg .p2{animation:paIn2 10s linear infinite}
-.seq-svg .p3{animation:paIn3 10s linear infinite}
-@keyframes paIn{0%,36%{opacity:0}42%,100%{opacity:1}}
-@keyframes paIn2{0%,40%{opacity:0}46%,100%{opacity:1}}
-@keyframes paIn3{0%,44%{opacity:0}50%,100%{opacity:1}}
-
-.seq-svg .stamp{opacity:0;animation:stampIn 10s cubic-bezier(.2,.9,.3,1) infinite}
-@keyframes stampIn{0%,74%{opacity:0;transform:scale(1.35)}82%,100%{opacity:1;transform:scale(1)}}
-.seq-svg .stamp circle{fill:none;stroke:#C5A25B;stroke-width:1.5}
-.seq-svg .stamp text{font:700 13px/1 Inter,system-ui,sans-serif;fill:#C5A25B;letter-spacing:1px}
-
-@media(prefers-reduced-motion:reduce){
-  .cr-photo img,.seq-svg .fig,.seq-svg .leaf,.seq-svg .gown,.seq-svg .flow,
-  .seq-svg .pa,.seq-svg .stamp,.cr-pill i{animation:none!important}
-  .seq-svg .fig{transform:translateX(700px)}
-  .seq-svg .gown,.seq-svg .pa,.seq-svg .stamp,.seq-svg .flow{opacity:1}}
-@media(max-width:760px){.seq{padding:38px 0 44px}.seq-head h3{font-size:21px}
-  .seq-head,.seq-wrap,.seq-foot{padding:0 20px}}
-</style>
-<style>
-/* ---- Controlled Environments page ---- */
-.ce-hero{position:relative;min-height:72vh;display:flex;align-items:center;
- background:#0B1F3F;overflow:hidden;padding:150px 0 100px}
-.ce-hero-media{position:absolute;inset:0}
-.ce-hero-media img{width:100%;height:100%;object-fit:cover;display:block;
- animation:ceDrift 30s ease-in-out infinite alternate}
-@keyframes ceDrift{0%{transform:scale(1.05)}100%{transform:scale(1.14)}}
-.ce-hero-veil{position:absolute;inset:0;background:linear-gradient(100deg,
- rgba(11,31,63,.96) 0%,rgba(11,31,63,.9) 40%,rgba(11,31,63,.52) 74%,rgba(11,31,63,.3) 100%)}
-.ce-hero-copy{position:relative;z-index:2;width:100%}
-.ce-k{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
- color:#C5A25B;margin-bottom:16px}
-.ce-hero h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(34px,4.6vw,58px);
- line-height:1.08;color:#fff;font-weight:600;margin:0 0 22px}
-.ce-hero h1 em{color:#D8BF94;font-style:italic}
-.ce-lead{font-size:15.5px;line-height:1.72;color:#C3CEE0;max-width:60ch;margin:0}
-.ce-pill{display:inline-flex;align-items:center;gap:9px;margin-top:26px;padding:9px 18px;
- border:1px solid rgba(197,162,91,.55);border-radius:999px;font-size:11px;font-weight:700;
- letter-spacing:2.4px;text-transform:uppercase;color:#E4CE9E;background:rgba(11,31,63,.45)}
-.ce-pill i{width:6px;height:6px;border-radius:50%;background:#C5A25B;
- animation:crPulse 2.4s ease-in-out infinite}
-@keyframes crPulse{0%,100%{opacity:.35;transform:scale(.8)}50%{opacity:1;transform:scale(1.25)}}
-
-.ce-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:2.8rem}
-.ce-card{background:#FAF8F5;border:1px solid #E6E1D8;border-radius:12px;padding:26px 24px;
- transition:border-color .3s,box-shadow .3s,transform .3s}
-.ce-card:hover{border-color:#C5A25B;box-shadow:0 14px 34px rgba(11,31,63,.09);transform:translateY(-2px)}
-.ce-n{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:#C5A25B;
- letter-spacing:2px;margin-bottom:12px}
-.ce-card h4{font-size:16px;color:#0B1F3F;margin:0 0 9px;font-weight:600}
-.ce-card p{font-size:13.5px;line-height:1.62;color:#55617A;margin:0}
-
-.ce-spec-t{width:100%;border-collapse:collapse;margin-top:2.6rem;font-size:13.5px}
-.ce-spec-t th,.ce-spec-t td{padding:15px 16px;text-align:left;vertical-align:top;
- border-bottom:1px solid #E6E1D8}
-.ce-spec-t th{width:20%;color:#0B1F3F;font-weight:600;font-size:14px}
-.ce-spec-t td{color:#55617A;line-height:1.6}
-.ce-spec-t td.st{width:17%;font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase}
-.ce-spec-t td.planned{color:#9A7B33}
-.ce-spec-t td.live{color:#2F6B4F}
-.ce-spec-t td.note{color:#8A94A6}
-.ce-cav{margin-top:22px;font-size:13px;color:#55617A;line-height:1.65;
- border-left:3px solid #C5A25B;padding-left:16px;max-width:74ch}
-.ce-cav b{color:#0B1F3F}
-
-.ce-unlock{display:grid;grid-template-columns:1fr 1fr;gap:26px 36px;margin-top:2.6rem}
-.ce-unlock h4{font-size:16px;color:#0B1F3F;margin:0 0 7px;font-weight:600}
-.ce-unlock p{font-size:13.5px;line-height:1.62;color:#55617A;margin:0}
-
-.ce-reg{text-align:center;max-width:760px}
-.ce-btn{display:inline-block;margin-top:28px;padding:15px 34px;border-radius:6px;
- background:#C5A25B;color:#0B1F3F;font-size:12px;font-weight:700;letter-spacing:2.2px;
- text-transform:uppercase;text-decoration:none;transition:background .3s,transform .3s}
-.ce-btn:hover{background:#D8BF94;transform:translateY(-2px)}
-.ce-small{margin-top:14px;font-size:12.5px;color:#8A94A6}
-.nav-links a.here{color:#C5A25B}
-
-@media(max-width:900px){.ce-cards{grid-template-columns:1fr}.ce-unlock{grid-template-columns:1fr}
- .ce-hero{min-height:auto;padding:120px 0 60px}
- .ce-spec-t th{width:30%}.ce-spec-t td.st{width:24%}}
-@media(prefers-reduced-motion:reduce){.ce-hero-media img,.ce-pill i{animation:none}}
-</style>
-<style>
-/* ---- Lab 24 page ---- */
-/* The product mark. Same grammar as LabArchitect: a kicker line, then the
-   name given room to be a name rather than a heading. */
-.pm,.l24-mark{display:inline-flex;align-items:flex-start;gap:6px;margin-bottom:6px}
-.pm .w,.l24-mark .w{font-family:'Playfair Display',Georgia,serif;font-size:clamp(46px,7.4vw,88px);
- line-height:.9;font-weight:600;color:#fff;letter-spacing:-.5px}
-.pm .w em,.l24-mark .w em{color:#D8BF94;font-style:italic}
-.pm .tm,.l24-mark .tm{font-family:'Inter',system-ui,sans-serif;font-size:clamp(13px,1.5vw,20px);
- font-weight:600;color:#C5A25B;line-height:1;margin-top:.35em}
-.l24-rule{width:96px;height:2px;background:#C5A25B;margin:20px 0 20px}
-.l24-desc{font:700 11px/1.6 'Inter',system-ui,sans-serif;letter-spacing:3.2px;
+<style id="hhg-productmark">
+/* Shared product-mark lockup. Lab 24 and LabArchitect are the two named
+   things HH sells, so they get the same treatment rather than one being a
+   kicker and the other a wordmark. */
+.pm{display:inline-flex;align-items:flex-start;gap:6px;margin-bottom:4px}
+.pm .w{font-family:'Playfair Display',Georgia,serif;font-size:clamp(40px,6.2vw,72px);
+ line-height:.92;font-weight:600;color:#fff;letter-spacing:-.5px}
+.pm .w em{color:#D8BF94;font-style:italic}
+.pm .tm{font-family:'Inter',system-ui,sans-serif;font-size:clamp(12px,1.4vw,18px);
+ font-weight:600;color:#C5A25B;line-height:1;margin-top:.4em}
+.pm-rule{width:96px;height:2px;background:#C5A25B;margin:20px 0}
+.pm-desc{font:700 11px/1.6 'Inter',system-ui,sans-serif;letter-spacing:3.2px;
  text-transform:uppercase;color:#C5A25B;margin-bottom:22px}
-.l24-hero h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(26px,3.2vw,40px);
- line-height:1.14;color:#fff;font-weight:600;margin:0 0 20px}
-.l24-hero h1 em{color:#D8BF94;font-style:italic}
+</style>
 
-/* spec strip under the hero */
-.l24-strip{background:#0B1F3F;border-top:1px solid rgba(197,162,91,.24);padding:0}
-.l24-strip .container{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
-.l24-fact{padding:30px 26px;border-right:1px solid rgba(197,162,91,.16)}
-.l24-fact:last-child{border-right:0}
-.l24-fact .n{font-family:'Playfair Display',Georgia,serif;font-size:30px;color:#D8BF94;
- line-height:1;margin-bottom:9px}
-.l24-fact .t{font:600 11px/1.5 'Inter',system-ui,sans-serif;letter-spacing:2.2px;
- text-transform:uppercase;color:#8FA2C0}
-.l24-fact .s{font-size:12.5px;line-height:1.55;color:#7C8BA6;margin-top:7px}
+<style id="hhg-svc">
+/* Shared service-page furniture, same grammar as LabArchitect and Lab 24. */
+.svc-hero{position:relative;min-height:74vh;display:flex;align-items:center;
+ background:#0B1F3F;overflow:hidden;padding:150px 0 96px}
+.svc-hero-media{position:absolute;inset:0}
+.svc-hero-media img{width:100%;height:100%;object-fit:cover;display:block;
+ animation:ceDrift 32s ease-in-out infinite alternate}
+.svc-hero-veil{position:absolute;inset:0;background:linear-gradient(100deg,
+ rgba(11,31,63,.97) 0%,rgba(11,31,63,.92) 42%,rgba(11,31,63,.58) 76%,rgba(11,31,63,.34) 100%)}
+.svc-hero-copy{position:relative;z-index:3;width:100%}
+.svc-hero h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(25px,3.1vw,39px);
+ line-height:1.16;color:#fff;font-weight:600;margin:0 0 20px;max-width:24ch}
+.svc-hero h1 em{color:#D8BF94;font-style:italic}
+.svc-lead{font-size:15.5px;line-height:1.74;color:#C3CEE0;max-width:60ch;margin:0}
 
-/* what it is */
-.l24-what{display:grid;grid-template-columns:1fr 1fr;gap:26px 38px;margin-top:2.6rem}
-.l24-what h4{font-size:16px;color:#0B1F3F;margin:0 0 8px;font-weight:600}
-.l24-what p{font-size:13.5px;line-height:1.64;color:#55617A;margin:0}
+/* numbered evidence checks */
+.svc-checks{margin-top:2.6rem;border-top:1px solid #E6E1D8}
+.svc-check{display:grid;grid-template-columns:56px 1fr;gap:0 22px;padding:22px 0;
+ border-bottom:1px solid #E6E1D8;align-items:start}
+.svc-check .n{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;
+ color:#C5A25B;letter-spacing:2px;padding-top:3px}
+.svc-check h4{font-size:16px;color:#0B1F3F;margin:0 0 7px;font-weight:600}
+.svc-check p{font-size:13.6px;line-height:1.65;color:#55617A;margin:0;max-width:72ch}
 
-@media(max-width:1050px){.l24-strip .container{grid-template-columns:1fr 1fr}
- .l24-fact:nth-child(2){border-right:0}
- .l24-fact:nth-child(1),.l24-fact:nth-child(2){border-bottom:1px solid rgba(197,162,91,.16)}}
-@media(max-width:760px){.l24-strip .container{grid-template-columns:1fr}
- .l24-fact{border-right:0;border-bottom:1px solid rgba(197,162,91,.16)}
- .l24-what{grid-template-columns:1fr}}
+/* the three situations */
+.svc-three{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:2.6rem}
+.svc-t{background:#FAF8F5;border:1px solid #E6E1D8;border-radius:12px;padding:26px 24px;
+ transition:border-color .3s,transform .3s,box-shadow .3s}
+.svc-t:hover{border-color:#C5A25B;transform:translateY(-2px);box-shadow:0 14px 34px rgba(11,31,63,.09)}
+.svc-t .k{font:700 10.5px/1.5 'Inter',system-ui,sans-serif;letter-spacing:2.2px;
+ text-transform:uppercase;color:#C5A25B;margin-bottom:11px}
+.svc-t h4{font-size:16px;color:#0B1F3F;margin:0 0 9px;font-weight:600}
+.svc-t p{font-size:13.4px;line-height:1.62;color:#55617A;margin:0}
+
+/* dark statistic band */
+.svc-stats{background:#0B1F3F;padding:78px 0;position:relative;overflow:hidden}
+.svc-stats .container{position:relative;z-index:2}
+.svc-stats .k{font:700 11px/1.5 'Inter',system-ui,sans-serif;letter-spacing:3px;
+ text-transform:uppercase;color:#C5A25B;margin-bottom:14px}
+.svc-stats h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(24px,2.9vw,35px);
+ line-height:1.18;color:#fff;font-weight:600;margin:0 0 16px;max-width:24ch}
+.svc-stats h2 em{color:#D8BF94;font-style:italic}
+.svc-stats .lead{font-size:14.6px;line-height:1.74;color:#AFBDD4;margin:0;max-width:66ch}
+.svc-sg{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:2.6rem}
+.svc-s{border-left:2px solid #C5A25B;padding:4px 0 4px 20px}
+.svc-s .n{font-family:'Playfair Display',Georgia,serif;font-size:clamp(28px,3.4vw,42px);
+ color:#D8BF94;line-height:1;margin-bottom:10px}
+.svc-s .t{font-size:13.2px;line-height:1.6;color:#9FB0CD}
+.svc-src{margin-top:2.2rem;font-size:12.2px;line-height:1.66;color:#6F7F99;max-width:80ch}
+
+/* what you get back */
+.svc-out{display:grid;grid-template-columns:1fr 1fr;gap:26px 36px;margin-top:2.6rem}
+.svc-out h4{font-size:16px;color:#0B1F3F;margin:0 0 8px;font-weight:600}
+.svc-out p{font-size:13.5px;line-height:1.64;color:#55617A;margin:0}
+
+@media(max-width:1000px){.svc-three,.svc-sg{grid-template-columns:1fr}
+ .svc-out{grid-template-columns:1fr}}
+@media(max-width:760px){.svc-hero{min-height:auto;padding:120px 0 60px}
+ .svc-check{grid-template-columns:1fr;gap:8px}}
+@media(prefers-reduced-motion:reduce){.svc-hero-media img{animation:none}}
 </style>
 <style id="hhg-mobile-parity">
 /* Mobile parity. Earlier rules dialled the imagery down so far for small-screen
@@ -2477,6 +2361,22 @@ footer a:hover::after{right:0}
 @media (prefers-reduced-motion:reduce){
  .ce-hero-media img,.hhg-hero-media img,.svc-hero-media img,.bio-hero::before{animation:none!important}
 }
+
+.pf-svg{width:100%;height:auto;display:block}
+.pf-band rect{fill:#fff;stroke:#E2DDD5;stroke-width:1.5}
+.pf-band.on rect{fill:#0B1F3F;stroke:#C5A25B}
+.pf-band text.t{fill:#0B1F3F;font-size:13px;font-weight:600}
+.pf-band.on text.t{fill:#fff}
+.pf-band text.n{fill:#9A7B33;font-size:19px;font-weight:700;text-anchor:end}
+.pf-band.on text.n{fill:#D8BF94}
+.pf-band text.s{fill:#6B7280;font-size:11px}
+.pf-band.on text.s{fill:#B8C4D8}
+.pf-band{opacity:0;transform:translateY(10px);transition:opacity .5s cubic-bezier(.2,.8,.2,1),transform .5s cubic-bezier(.2,.8,.2,1)}
+.pf-band.in{opacity:1;transform:none}
+.pf-band rect,.pf-band text{transition:fill .4s,stroke .4s}
+.pf-drop{stroke:#C5A25B;stroke-width:1.4;fill:none;opacity:.5}
+.es-flow{max-width:640px;margin:0 auto}
+.es-flow .cap-note{font-size:12px;color:var(--text-light);line-height:1.5;margin-top:14px;text-align:center}
 </style>
 
 <body>
@@ -2501,10 +2401,10 @@ footer a:hover::after{right:0}
  <a href="labarchitect.html" class="here">Capabilities &#9662;</a>
  <div class="dropdown-menu">
  <a href="labarchitect.html">LabArchitect&trade;</a>
- <a href="lab24.html" class="here">Lab 24&trade;</a>
+ <a href="lab24.html">Lab 24&trade;</a>
  <a href="evidd.html">EviDD&trade;</a>
  <a href="evidence-synthesis.html">Evidence Synthesis</a>
- <a href="competence-assurance.html">Competence Assurance</a>
+ <a href="competence-assurance.html" class="here">Competence Assurance</a>
  </div>
  </li>
  <li class="dropdown">
@@ -2525,229 +2425,145 @@ footer a:hover::after{right:0}
 </nav>
 <div class="hhg-flag">HHG Draft Update One<span class="long"> &middot; full concept build for review</span> &middot; not the live site</div>
 
-<!-- HERO -->
-<section class="ce-hero l24-hero" data-trace data-trace-speed="0.15">
- <div class="ce-hero-media">
-  <img src="assets/cleanroom.webp" alt="Clean room interior with gowning lobby and interlocked door"
-       fetchpriority="high" decoding="async">
+<section class="svc-hero" data-trace data-trace-speed="0.15">
+ <div class="svc-hero-media">
+  <img src="assets/img4.webp" alt="" decoding="async" fetchpriority="high">
  </div>
- <div class="ce-hero-veil"></div>
- <div class="container ce-hero-copy">
-  <div class="l24-mark"><span class="w">Lab <em>24</em></span><span class="tm">&trade;</span></div>
-  <div class="l24-rule"></div>
-  <div class="l24-desc">Controlled Environment &middot; Nottingham</div>
-  <h1>The Room Is Not the Point.<br><em>The Record Is.</em></h1>
-  <p class="ce-lead">Our own controlled environment in Nottingham, opening September 2026. Built to
-  ISO 7, continuously monitored, and held inside one quality system, so that nothing about how a
-  result was produced has to be reconstructed afterwards.</p>
-  <div class="ce-pill"><i></i>Opening September 2026</div>
+ <div class="svc-hero-veil"></div>
+ <div class="container svc-hero-copy">
+  <div class="pm"><span class="w">Evidence <em>Synthesis</em></span></div>
+  <div class="pm-rule"></div>
+  <div class="pm-desc">Systematic review and critical appraisal</div>
+  <h1>A Systematic Review Is Not a Summary<br><em>of What Has Been Published.</em></h1>
+  <p class="svc-lead">It is a judgement about what can be relied on. Screening is the part machines
+  now do well. Deciding whether a study can carry the weight being placed on it is not, and that
+  judgement is the only part that was ever worth paying for.</p>
  </div>
 </section>
 
-<!-- FACT STRIP -->
-<section class="l24-strip">
+<section class="section wash" id="flow" data-trace data-trace-speed="0.18"
+         style="--wash:url(assets/img5.webp);--wpos:center 40%">
  <div class="container">
-  <div class="l24-fact"><div class="n">ISO 7</div><div class="t">Classification</div>
-   <div class="s">352,000 particles at 0.5 micrometres or larger per cubic metre, the class limit
-   under ISO 14644-1.</div></div>
-  <div class="l24-fact"><div class="n">+30 Pa</div><div class="t">Pressure cascade</div>
-   <div class="s">Positive relative to the gowning lobby, which is itself positive to the corridor.
-   Leakage runs outward.</div></div>
-  <div class="l24-fact"><div class="n">2</div><div class="t">Interlocked doors</div>
-   <div class="s">The corridor door and the laboratory door cannot be open at the same time. The
-   interlock is physical, not procedural.</div></div>
-  <div class="l24-fact"><div class="n">Sep 2026</div><div class="t">Opening</div>
-   <div class="s">Capacity in the first months is limited and will be committed deliberately rather
-   than first come.</div></div>
- </div>
-</section>
-
-<!-- WHAT IT IS -->
-<section class="section wash" id="what" data-trace data-trace-speed="0.18"
-         style="--wash:url(assets/img4.webp);--wpos:center 45%">
- <div class="container">
-  <div class="section-tag">What Lab 24 actually is</div>
-  <h2 class="section-heading">A Room Whose Conditions<br><em>Are Part of the Evidence.</em></h2>
-  <p class="section-lead">A controlled environment is not a nicer laboratory. It is a room whose
-  particle count, pressure and access are specified, monitored and recorded, so that a result
-  produced inside it carries a provenance somebody can examine two years later. Everything below is
-  either in place or specified and in build, and the specification table says which.</p>
-  <div class="l24-what">
-   <div><h4>Fully enclosed, not a partitioned corner</h4>
-    <p>A sealed envelope with its own air handling, rather than a screened-off area of a larger
-    laboratory sharing the same atmosphere.</p></div>
-   <div><h4>Gowning lobby as an airlock</h4>
-    <p>The lobby is the buffer. It is where the change happens and where the pressure step sits,
-    which is what makes the interlock meaningful rather than ceremonial.</p></div>
-   <div><h4>Continuous environmental monitoring</h4>
-    <p>Particle count, pressure differential and access logged against the work rather than sampled
-    occasionally and filed separately.</p></div>
-   <div><h4>Access as a recorded event</h4>
-    <p>Who entered, when, and against which piece of work. Access control is part of the evidence
-    rather than a facilities concern.</p></div>
+  <div class="section-tag">From retrieval to reliance</div>
+  <h2 class="section-heading">Two Thousand Records In.<br><em>Eleven Studies Out.</em></h2>
+  <p class="section-lead">The number that matters is not how many papers were found. It is how many
+  survived appraisal, and on what grounds the rest were set aside. That is the part of the process a
+  reader can audit, and the part a search tool cannot perform.</p>
+  <div class="es-flow">
+   <svg class="pf-svg" id="pfSvg" viewBox="0 0 560 392" role="img"
+     aria-label="Flow from 2,847 records identified through to 11 studies carried into the synthesis">
+    <g class="pf-band" data-i="0" style="transition-delay:0.00s"><rect x="0" y="0" width="560" height="52" rx="8"/><text class="t" x="18" y="24">Records identified</text><text class="s" x="18" y="41">database and register searches</text><text class="n" x="542" y="34">2,847</text></g><path class="pf-drop" d="M280.0 52 L280.0 68"/><g class="pf-band" data-i="1" style="transition-delay:0.12s"><rect x="26" y="68" width="508" height="52" rx="8"/><text class="t" x="44" y="92">Duplicates removed</text><text class="s" x="44" y="109">before screening</text><text class="n" x="516" y="102">412</text></g><path class="pf-drop" d="M280.0 120 L280.0 136"/><g class="pf-band" data-i="2" style="transition-delay:0.24s"><rect x="52" y="136" width="456" height="52" rx="8"/><text class="t" x="70" y="160">Titles and abstracts screened</text><text class="s" x="70" y="177">against the pre-specified protocol</text><text class="n" x="490" y="170">2,435</text></g><path class="pf-drop" d="M280.0 188 L280.0 204"/><g class="pf-band" data-i="3" style="transition-delay:0.36s"><rect x="78" y="204" width="404" height="52" rx="8"/><text class="t" x="96" y="228">Full texts assessed</text><text class="s" x="96" y="245">for eligibility</text><text class="n" x="464" y="238">186</text></g><path class="pf-drop" d="M280.0 256 L280.0 272"/><g class="pf-band" data-i="4" style="transition-delay:0.48s"><rect x="104" y="272" width="352" height="52" rx="8"/><text class="t" x="122" y="296">Studies included</text><text class="s" x="122" y="313">and appraised for risk of bias</text><text class="n" x="438" y="306">23</text></g><path class="pf-drop" d="M280.0 324 L280.0 340"/><g class="pf-band" data-i="5" style="transition-delay:0.60s"><rect x="130" y="340" width="300" height="52" rx="8"/><text class="t" x="148" y="364">Carried into the synthesis</text><text class="s" x="148" y="381">after appraisal, not after retrieval</text><text class="n" x="412" y="374">11</text></g>
+   </svg>
+   <p class="cap-note">Illustrative flow. Reported to PRISMA, appraised with the instrument that fits
+   the study type, QUADAS-2 for diagnostic accuracy rather than a tool designed for trials.</p>
   </div>
  </div>
 </section>
 
-<section class="seq wash" id="entry" data-trace data-trace-speed="0.22" style="--wash:url(assets/cleanroom.webp);--wpos:center 45%">
- <div class="seq-head">
-  <div class="k">Controlled entry &middot; Ten seconds</div>
-  <h3>You do not walk into a clean room. You are admitted to it.</h3>
-  <p>Fully enclosed, with a gowning lobby between the corridor and the laboratory, and interlocked
-  doors so that the two never stand open together. Air is held at higher pressure inside than out,
-  so any leakage runs the safe way. This is that sequence, drawn to the classifications the room
-  is built to.</p>
- </div>
- <div class="seq-wrap">
-  <svg class="seq-svg" viewBox="24 64 1132 366" role="img"
-       aria-label="Schematic of clean room entry: corridor, gowning lobby, interlocked doors, ISO 7 laboratory">
-   <rect x="0" y="0" width="1180" height="440" fill="#0B1F3F"/>
-   
-   <rect class="room " x="40" y="82" width="320" height="300"/>
-   <text class="lbl" x="56" y="112">Corridor</text>
-   <text class="iso" x="56" y="136">ISO 9</text>
-   <text class="cnt" x="56" y="154">35,200,000</text>
-   <text class="pa p1" x="56" y="358">+0 Pa</text>
-   
-   <rect class="room " x="392" y="82" width="320" height="300"/>
-   <text class="lbl" x="408" y="112">Gowning lobby</text>
-   <text class="iso" x="408" y="136">ISO 8</text>
-   <text class="cnt" x="408" y="154">3,520,000</text>
-   <text class="pa p2" x="408" y="358">+15 Pa</text>
-   
-   <rect class="room clean" x="744" y="82" width="396" height="300"/>
-   <text class="lbl" x="760" y="112">Laboratory</text>
-   <text class="iso" x="760" y="136">ISO 7</text>
-   <text class="cnt" x="760" y="154">352,000</text>
-   <text class="pa p3" x="760" y="358">+30 Pa</text>
-   <rect class="hepa" x="757" y="91" width="46" height="14" rx="1"/><rect class="hepa" x="811" y="91" width="46" height="14" rx="1"/><rect class="hepa" x="865" y="91" width="46" height="14" rx="1"/><rect class="hepa" x="919" y="91" width="46" height="14" rx="1"/><rect class="hepa" x="973" y="91" width="46" height="14" rx="1"/><rect class="hepa" x="1027" y="91" width="46" height="14" rx="1"/><rect class="hepa" x="1081" y="91" width="46" height="14" rx="1"/>
-   <line class="flow" x1="766" y1="112" x2="766" y2="362" style="animation-delay:0s,-0.00s"/><line class="flow" x1="792" y1="112" x2="792" y2="362" style="animation-delay:0s,-0.22s"/><line class="flow" x1="818" y1="112" x2="818" y2="362" style="animation-delay:0s,-0.44s"/><line class="flow" x1="844" y1="112" x2="844" y2="362" style="animation-delay:0s,-0.66s"/><line class="flow" x1="870" y1="112" x2="870" y2="362" style="animation-delay:0s,-0.88s"/><line class="flow" x1="896" y1="112" x2="896" y2="362" style="animation-delay:0s,-1.10s"/><line class="flow" x1="922" y1="112" x2="922" y2="362" style="animation-delay:0s,-1.32s"/><line class="flow" x1="948" y1="112" x2="948" y2="362" style="animation-delay:0s,-1.54s"/><line class="flow" x1="974" y1="112" x2="974" y2="362" style="animation-delay:0s,-1.76s"/><line class="flow" x1="1000" y1="112" x2="1000" y2="362" style="animation-delay:0s,-1.98s"/><line class="flow" x1="1026" y1="112" x2="1026" y2="362" style="animation-delay:0s,-2.20s"/><line class="flow" x1="1052" y1="112" x2="1052" y2="362" style="animation-delay:0s,-2.42s"/><line class="flow" x1="1078" y1="112" x2="1078" y2="362" style="animation-delay:0s,-2.64s"/><line class="flow" x1="1104" y1="112" x2="1104" y2="362" style="animation-delay:0s,-2.86s"/><line class="flow" x1="1130" y1="112" x2="1130" y2="362" style="animation-delay:0s,-3.08s"/>
-   <rect class="floor" x="40" y="376" width="1100" height="6"/><line x1="744" y1="110" x2="1140" y2="110" stroke="#33598F" stroke-width="1" opacity=".6"/>
-   <rect class="wall" x="40" y="82" width="1100" height="300"/>
-   <line class="wall" x1="360" y1="82" x2="360" y2="382"/>
-   <line class="wall" x1="392" y1="82" x2="392" y2="382"/>
-   <line class="wall" x1="712" y1="82" x2="712" y2="382"/>
-   <line class="wall" x1="744" y1="82" x2="744" y2="382"/>
-   <rect class="leaf d1a" x="361" y="180" width="15" height="196"/>
-   <rect class="leaf d1b" x="376" y="180" width="15" height="196"/>
-   <rect class="leaf d2a" x="713" y="180" width="15" height="196"/>
-   <rect class="leaf d2b" x="728" y="180" width="15" height="196"/>
-   <g class="fig">
-    <g transform="translate(160,0)">
-     <circle class="body-st" cx="0" cy="286" r="11"/>
-     <rect class="body-st" x="-11" y="300" width="22" height="76" rx="9"/>
-     <circle class="gown" cx="0" cy="286" r="11"/>
-     <rect class="gown" x="-12" y="299" width="24" height="77" rx="9"/>
-    </g>
-   </g>
-   <g class="stamp" style="transform-origin:1040px 300px">
-    <circle cx="1040" cy="300" r="42"/>
-    <text x="1040" y="296" text-anchor="middle">ISO 7</text>
-    <text x="1040" y="314" text-anchor="middle" style="font-size:8.5px;letter-spacing:2px;fill:#9C8455">CONTROLLED</text>
-   </g>
-   <text class="cnt" x="40" y="412">Particles &#8805;0.5 &#181;m per cubic metre. Class limits, ISO 14644-1.</text>
-  </svg>
- </div>
- <div class="seq-foot"><b>Schematic, not a photograph.</b> It shows the classifications and the
- pressure cascade the room is built to, nothing more.</div>
-</section>
-
-<section class="section-alt wash" id="provenance" style="--wash:url(assets/img5.webp);--wpos:center 35%">
+<section class="svc-stats" data-trace data-trace-speed="0.22">
  <div class="container">
-  <div class="section-tag">Why it changes the answer</div>
-  <h2 class="section-heading">Provenance Is Lost<br><em>at the Handover.</em></h2>
-  <p class="section-lead">Most laboratories that need controlled-environment work subcontract it.
-  That is a perfectly ordinary arrangement and it is also the single most common place a chain of
-  custody develops a gap, because the moment a sample leaves your quality system it is governed by
-  somebody else's. Bringing the room in house does not make the science better on its own. It makes
-  the record continuous, and the record is what gets examined.</p>
-
-  <div class="ce-cards">
-   <div class="ce-card">
-    <div class="ce-n">01</div>
-    <h4>One quality system, end to end</h4>
-    <p>Sample receipt, controlled work and reporting sit under a single set of procedures rather
-    than being stitched together across two organisations after the fact.</p>
-   </div>
-   <div class="ce-card">
-    <div class="ce-n">02</div>
-    <h4>The record travels with the result</h4>
-    <p>Environmental monitoring, access and batch data are held against the work itself, so a
-    question asked two years later has an answer that does not depend on a third party's archive.</p>
-   </div>
-   <div class="ce-card">
-    <div class="ce-n">03</div>
-    <h4>Method design and execution in one place</h4>
-    <p>When a method has to be developed rather than run, the people designing it and the room it
-    will run in are not separated by a contract.</p>
-   </div>
+  <div class="k">Where reviews fail, and it is rarely arithmetic</div>
+  <h2>The Weakness Is Almost Never<br><em>That Too Few Papers Were Found.</em></h2>
+  <p class="lead">A review can be exhaustive in its search and still reach a conclusion the evidence
+  does not support. The failures cluster in a small number of places, and every one of them is a
+  judgement about study design rather than a gap in retrieval.</p>
+  <div class="svc-sg">
+   <div class="svc-s"><div class="n">Reference</div>
+    <div class="t">A reference standard that quietly included the test being evaluated, so the study
+    is in part measuring itself and the accuracy figure flatters accordingly.</div></div>
+   <div class="svc-s"><div class="n">Design</div>
+    <div class="t">A two gate design that recruits obvious cases and healthy controls separately,
+    producing a separation the test will not reproduce in the population it is sold into.</div></div>
+   <div class="svc-s"><div class="n">Outcome</div>
+    <div class="t">Outcomes reported that are not the outcomes the protocol specified, and sensitivity
+    quoted with no statement of the population it was measured in.</div></div>
   </div>
  </div>
 </section>
 
-<section class="section wash" id="spec" style="--wash:url(assets/img5.webp);--wpos:center 40%">
+<section class="section-alt wash" id="work" style="--wash:url(assets/img3.webp);--wpos:center 45%">
  <div class="container">
-  <div class="section-tag">Specification</div>
-  <h2 class="section-heading">Stated Plainly,<br><em>Before It Opens.</em></h2>
-  <p class="section-lead">Published while the facility is in build, so it can be held against what
-  is delivered. Where something is planned rather than in place, it says so.</p>
-  <table class="ce-spec-t">
-   <tbody>
-    <tr><th scope="row">Classification</th><td>ISO 7 controlled clean room</td>
-        <td class="st planned">Specified, in build</td></tr>
-    <tr><th scope="row">Entry</th><td>Fully enclosed, gowning lobby, interlocked doors between
-        corridor, lobby and laboratory</td><td class="st planned">Specified, in build</td></tr>
-    <tr><th scope="row">Air</th><td>HEPA filtration with a positive pressure cascade outward from
-        the laboratory</td><td class="st planned">Specified, in build</td></tr>
-    <tr><th scope="row">Capability</th><td>Cell culture, controlled manufacturing and sensitive
-        studies</td><td class="st planned">Specified, in build</td></tr>
-    <tr><th scope="row">Location</th><td>HH Global Holdings, Nottingham, alongside immunology,
-        genetics and data</td><td class="st live">In place</td></tr>
-    <tr><th scope="row">Operating model</th><td>Run to ISO 17025 and ISO 15189 disciplines, under
-        HH's own quality system</td><td class="st live">In place</td></tr>
-    <tr><th scope="row">Accredited scope</th><td>Accreditation is granted against named activities,
-        not against a room. Scope will be published as it is granted, and we will say what is not
-        covered.</td><td class="st note">Not yet claimed</td></tr>
-   </tbody>
-  </table>
-  <p class="ce-cav"><b>One deliberate omission.</b> We are not claiming UKAS accreditation for this
-  facility or for any named test in it, because it is not yet open. When there is a schedule, it
-  will be linked here and you should ask to see it rather than take the statement.</p>
- </div>
-</section>
-
-<!-- WHAT IT UNLOCKS -->
-<section class="section-alt wash" id="work" style="--wash:url(assets/img3.webp);--wpos:center 30%">
- <div class="container">
-  <div class="section-tag">What it unlocks</div>
-  <h2 class="section-heading">Work We Currently<br><em>Have to Send Out.</em></h2>
-  <div class="ce-unlock">
-   <div><h4>Cell culture under controlled conditions</h4>
-    <p>Studies where contamination control is part of the result rather than housekeeping.</p></div>
-   <div><h4>Small-scale controlled manufacture</h4>
-    <p>Producing material to a defined standard, with the environmental record attached to the batch.</p></div>
-   <div><h4>Sensitive sample handling</h4>
-    <p>Low-biomass and trace work, where the environment is a plausible source of the signal and has
-    to be excluded by evidence rather than assertion.</p></div>
-   <div><h4>Method development that needs the room</h4>
-    <p>Designing a method in the environment it will eventually run in, rather than designing it
-    somewhere else and hoping it transfers.</p></div>
+  <div class="section-tag">What we do</div>
+  <h2 class="section-heading">Listing Papers Is Not<br><em>the Same as Appraising Them.</em></h2>
+  <p class="section-lead">A literature section that is a list of papers with a paragraph under each,
+  presented as though listing were the same as appraising, will not survive a regulatory review. Under
+  the EU medical device and IVD regulations the literature behind a clinical or performance evaluation
+  must be systematic in the strict sense.</p>
+  <div class="svc-out">
+   <div><h4>Protocol written before results are looked at</h4>
+    <p>Registered where registration applies, with the question, the inclusion criteria and the
+    outcomes fixed in advance rather than settled once the data is in view.</p></div>
+   <div><h4>Documented, reproducible search</h4>
+    <p>Databases, registers, search strings and dates recorded so a third party can run the same
+    search and arrive at the same starting set.</p></div>
+   <div><h4>Flow diagram accounting for every exclusion</h4>
+    <p>Reported to PRISMA, so the path from records identified to studies synthesised is auditable
+    at each step rather than asserted at the end.</p></div>
+   <div><h4>Critical appraisal against a fitted instrument</h4>
+    <p>QUADAS-2 for diagnostic accuracy, the appropriate risk of bias tool for trials and
+    observational designs. The instrument follows the study type, not house habit.</p></div>
+   <div><h4>Synthesis that states its own confidence</h4>
+    <p>What the body of evidence supports, how strongly, and where it does not reach. Including,
+    where it is the honest answer, that the question remains open.</p></div>
+   <div><h4>Regulatory-grade documentation</h4>
+    <p>Written to carry the clinical or performance evaluation behind an MDR or IVDR submission,
+    rather than requiring rework once it reaches a notified body.</p></div>
   </div>
  </div>
 </section>
 
-<!-- REGISTER -->
-<section class="section wash" id="register" style="--wash:url(assets/cleanroom.webp);--wpos:center 40%">
+<section class="section wash" id="lab" data-trace data-trace-speed="0.20"
+         style="--wash:url(assets/img5.webp);--wpos:center 55%">
+ <div class="container">
+  <div class="section-tag">The difference</div>
+  <h2 class="section-heading">Further Research Is Needed.<br><em>We Have a Laboratory.</em></h2>
+  <p class="section-lead">Almost every systematic review ends in some version of that sentence, and
+  for almost everyone producing them a document is the only thing they can make. Universities, medical
+  writers and synthesis consultancies stop there because stopping there is the limit of what they own.</p>
+  <p class="section-lead">When a review identifies the study that is missing, we can design it, run it
+  and produce the data. The synthesis and the means of closing the gap it exposes are the same
+  proposition, delivered by the same organisation, with the appraisal standard carried through into
+  how the new work is specified.</p>
+ </div>
+</section>
+
+<section class="svc-stats" id="pricing" data-trace data-trace-speed="0.20">
+ <div class="container">
+  <div class="k">Indicative pricing</div>
+  <h2>Scoped to the Question,<br><em>Not to a Page Count.</em></h2>
+  <p class="lead">Every review is quoted against its protocol, because the work is driven by the size of
+  the literature, the study designs in it and the standard the output has to meet. The bands below are
+  where most engagements land.</p>
+  <div class="svc-sg">
+   <div class="svc-s"><div class="n">From &pound;15k</div>
+    <div class="t"><b>Rapid review.</b> A focused question, a bounded search and appraisal of the
+    studies that matter. Used to test whether a claim is supportable before committing to a full
+    review.</div></div>
+   <div class="svc-s"><div class="n">&pound;20&ndash;60k</div>
+    <div class="t"><b>Full systematic review.</b> Protocol, documented search, PRISMA flow, critical
+    appraisal of every included study and a synthesis that states its own confidence. Where most work
+    sits.</div></div>
+   <div class="svc-s"><div class="n">To &pound;90k</div>
+    <div class="t"><b>Regulatory-grade.</b> Written to carry the clinical or performance evaluation
+    behind an MDR or IVDR submission, at a scale and evidentiary standard a notified body will
+    accept.</div></div>
+  </div>
+  <p class="lead" style="margin-top:2.2rem;font-size:14px">Where a review identifies the study that is
+  missing, the laboratory work to close that gap is quoted separately and can begin while the synthesis
+  is being written.</p>
+ </div>
+</section>
+
+<section class="section-alt wash" id="talk" style="--wash:url(assets/img4.webp);--wpos:center 50%">
  <div class="container ce-reg">
-  <div class="section-tag">September 2026</div>
-  <h2 class="section-heading">Tell Us What You<br><em>Would Bring.</em></h2>
-  <p class="section-lead">Capacity in the first months will be limited and we would rather commit it
-  deliberately than on a first come basis. If you have work that has been waiting for a room like
-  this, describe it and we will tell you honestly whether it fits, including if it does not.</p>
-  <a class="ce-btn" href="mailto:mark.evans-smith@hhglobalholdings.com?subject=Lab%2024%20%E2%80%93%20September%202026">
-   Register your interest</a>
-  <p class="ce-small">Goes to Mark Evans-Smith. No list, no newsletter, just a conversation about
-  whether the work fits the room.</p>
+  <div class="section-tag">Before it reaches a notified body</div>
+  <h2 class="section-heading">Send Us the Review<br><em>You Already Have.</em></h2>
+  <p class="section-lead">If you hold a literature review supporting a clinical or performance
+  evaluation, it is worth a second opinion before somebody else forms the first one. We will tell you
+  plainly where it holds and where it does not, including if the answer is that it is already sound.</p>
+  <a class="ce-btn" href="mailto:mark.evans-smith@hhglobalholdings.com?subject=Evidence%20Synthesis">
+   Talk to us</a>
+  <p class="ce-small">Goes to Mark Evans-Smith. No list, no newsletter.</p>
  </div>
 </section>
 <footer>
@@ -2881,6 +2697,31 @@ footer a:hover::after{right:0}
       document.querySelectorAll('.dropdown.open').forEach(function(o){ o.classList.remove('open'); });
     }
   });
+})();
+</script>
+<script>
+(function(){
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){
+   if(!e.isIntersecting) return;
+   var b=[].slice.call(e.target.querySelectorAll('.pf-band'));
+   b.forEach(function(g){g.classList.add('in');});
+   setTimeout(function(){ b.forEach(function(g,i){ if(i>=4) g.classList.add('on'); }); }, 1100);
+   io.unobserve(e.target);
+ });},{threshold:.25});
+ var n=document.getElementById('pfSvg'); if(n) io.observe(n);
+})();
+(function(){
+ function flatten(){
+   var svg=document.getElementById('pfSvg'); if(!svg) return;
+   var narrow=innerWidth<=760;
+   [].slice.call(svg.querySelectorAll('.pf-band')).forEach(function(g){
+     var r=g.querySelector('rect'), i=+g.dataset.i, W=560, inset=narrow?0:i*26;
+     r.setAttribute('x',inset); r.setAttribute('width',W-inset*2);
+     var t1=g.querySelector('text.t'),t2=g.querySelector('text.s'),n=g.querySelector('text.n');
+     t1.setAttribute('x',inset+18); t2.setAttribute('x',inset+18); n.setAttribute('x',W-inset-18);
+   });
+ }
+ addEventListener('resize',flatten); flatten();
 })();
 </script>
 </body>
