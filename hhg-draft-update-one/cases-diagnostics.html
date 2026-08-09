@@ -1533,6 +1533,44 @@
 @media (prefers-reduced-motion:reduce){
  .ce-hero-media img,.hhg-hero-media img,.svc-hero-media img,.bio-hero::before{animation:none!important}
 }
+
+/* ---- programme maturity track ---------------------------------- */
+.mt{margin:2.6rem auto 0;max-width:1000px}
+.mt-wrap{position:relative;padding:26px 0 8px}
+.mt-rail{position:absolute;left:6%;right:6%;top:44px;height:2px;background:#E2DDD5;overflow:hidden}
+.mt-rail i{display:block;height:100%;width:0;background:linear-gradient(90deg,#C9AA7D,#9A7B33);
+ transition:width 1.5s cubic-bezier(.2,.8,.2,1) .15s}
+.mt.in .mt-rail i{width:100%}
+.mt-stages{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.mt-st{text-align:center;opacity:0;transform:translateY(8px);
+ transition:opacity .5s cubic-bezier(.2,.8,.2,1),transform .5s cubic-bezier(.2,.8,.2,1)}
+.mt.in .mt-st{opacity:1;transform:none}
+.mt-dot{width:15px;height:15px;border-radius:50%;background:#fff;border:2px solid #E2DDD5;
+ margin:11px auto 12px;transition:background .45s,border-color .45s,box-shadow .45s}
+.mt-st.on .mt-dot{background:#0B1F3F;border-color:#C9AA7D;box-shadow:0 0 0 5px rgba(201,170,125,.16)}
+.mt-st b{display:block;font-size:12.5px;color:#0B1F3F;font-weight:600;letter-spacing:.2px}
+.mt-st span{display:block;font-size:10.5px;color:#8A94A6;margin-top:3px;line-height:1.35}
+.mt-st.on b{color:#0B1F3F}
+.mt-pins{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:18px;align-items:start}
+.mt-pin{background:#fff;border:1px solid #E2DDD5;border-top:2px solid #C9AA7D;border-radius:6px;
+ padding:10px 12px;font-size:11.5px;line-height:1.45;color:#4A5568;
+ opacity:0;transform:translateY(10px);transition:opacity .55s,transform .55s}
+.mt.in .mt-pin{opacity:1;transform:none}
+.mt-pin b{display:block;color:#0B1F3F;font-size:12px;margin-bottom:3px;font-weight:600}
+.mt-note{font-size:11.5px;color:#8A94A6;text-align:center;margin-top:20px;font-style:italic}
+@media(max-width:820px){
+ .mt-rail{display:none}
+ .mt-stages{grid-template-columns:1fr;gap:0;text-align:left}
+ .mt-st{text-align:left;display:grid;grid-template-columns:26px 1fr;
+  grid-template-areas:"dot title" "dot sub";align-items:center;
+  border-left:2px solid #E2DDD5;padding:9px 0 9px 4px}
+ .mt-st.on{border-left-color:#C9AA7D}
+ .mt-dot{grid-area:dot;margin:0 0 0 -8px;align-self:center}
+ .mt-st b{grid-area:title}
+ .mt-st span{grid-area:sub;margin-top:2px}
+ .mt-pins{grid-template-columns:1fr;margin-top:16px}
+ .mt-pin{grid-column:1 !important}
+}
 </style>
 
 <div class="hhg-prog" id="hhgProg"></div>
@@ -1598,6 +1636,14 @@
  <div class="section-tag">Case Studies &amp; Track Record</div>
  <h2 class="section-heading">Selected Work,<br><em>and Its Actual Status.</em></h2>
  <p class="section-lead">Selected examples of our work in diagnostic platform development, IP commercialisation, and pre-clinical drug characterisation programmes.</p>
+<div class="mt" data-reached="2">
+ <div class="mt-wrap">
+  <div class="mt-rail"><i></i></div>
+  <div class="mt-stages"><div class="mt-st"><div class="mt-dot"></div><b>Concept</b><span>problem framed, route defined</span></div><div class="mt-st"><div class="mt-dot"></div><b>Proposal</b><span>scoped with partners</span></div><div class="mt-st"><div class="mt-dot"></div><b>Active</b><span>programme running</span></div><div class="mt-st"><div class="mt-dot"></div><b>Delivered</b><span>evidence handed over</span></div><div class="mt-st"><div class="mt-dot"></div><b>Licensed</b><span>in commercial discussion</span></div></div>
+  <div class="mt-pins"><div class="mt-pin" style="grid-column:1"><b>Multiplex Allergen LFT</b>IP retained, in global licensing discussions</div><div class="mt-pin" style="grid-column:3"><b>Biologic Drug Characterisation</b>Pre-clinical programme running</div></div>
+ </div>
+ <p class="mt-note">Where the work below currently sits. Status is stated, not implied.</p>
+</div>
  <div class="cases-grid">
  <div class="case-card fade-in">
  <span class="cs-status cs-status-concept">STATUS — Concept</span><div class="case-tag">Diagnostics Platform · IP Licensing</div>
@@ -1754,6 +1800,28 @@
       document.querySelectorAll('.dropdown.open').forEach(function(o){ o.classList.remove('open'); });
     }
   });
+})();
+</script>
+<script>
+(function(){
+ var els=[].slice.call(document.querySelectorAll('.mt'));
+ if(!els.length) return;
+ if(!('IntersectionObserver' in window)){els.forEach(function(m){m.classList.add('in');});return;}
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){
+   if(!e.isIntersecting) return;
+   var m=e.target; m.classList.add('in');
+   var reached=+m.dataset.reached||0;
+   [].slice.call(m.querySelectorAll('.mt-st')).forEach(function(s,i){
+     s.style.transitionDelay=(i*0.11)+'s';
+     if(i<=reached) setTimeout(function(){s.classList.add('on');}, 400+i*230);
+   });
+   [].slice.call(m.querySelectorAll('.mt-pin')).forEach(function(pn,i){
+     pn.style.transitionDelay=(0.7+i*0.14)+'s';
+   });
+   io.unobserve(m);
+ });},{threshold:.3});
+ els.forEach(function(m){io.observe(m);});
+ setTimeout(function(){els.forEach(function(m){m.classList.add('in');});},2500);
 })();
 </script>
 </body>

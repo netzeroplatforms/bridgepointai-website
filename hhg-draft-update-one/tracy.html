@@ -1837,6 +1837,13 @@
 @media (prefers-reduced-motion:reduce){
  .ce-hero-media img,.hhg-hero-media img,.svc-hero-media img,.bio-hero::before{animation:none!important}
 }
+
+/* ---- bio credential reveal ------------------------------------- */
+.team-badge,.cred-item,.science-item{opacity:0;transform:translateY(9px);
+ transition:opacity .55s cubic-bezier(.2,.8,.2,1),transform .55s cubic-bezier(.2,.8,.2,1)}
+.rv-in .team-badge,.rv-in .cred-item,.rv-in .science-item{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+ .team-badge,.cred-item,.science-item{opacity:1;transform:none;transition:none}}
 </style>
 
 <script>
@@ -2012,6 +2019,28 @@
       document.querySelectorAll('.dropdown.open').forEach(function(o){ o.classList.remove('open'); });
     }
   });
+})();
+</script>
+<script>
+(function(){
+ var groups=[].slice.call(document.querySelectorAll('.bio-hero, .science-bar-inner, .cred-list, .science-bar'));
+ // fall back: any parent holding the badges
+ ['team-badge','cred-item','science-item'].forEach(function(c){
+   var n=document.querySelector('.'+c);
+   if(n&&n.parentNode&&groups.indexOf(n.parentNode)<0) groups.push(n.parentNode);
+ });
+ if(!groups.length) return;
+ if(!('IntersectionObserver' in window)){groups.forEach(function(g){g.classList.add('rv-in');});return;}
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){
+   if(!e.isIntersecting) return;
+   var g=e.target; g.classList.add('rv-in');
+   [].slice.call(g.querySelectorAll('.team-badge,.cred-item,.science-item')).forEach(function(el,i){
+     el.style.transitionDelay=(0.10+i*0.09)+'s';
+   });
+   io.unobserve(g);
+ });},{threshold:.2});
+ groups.forEach(function(g){io.observe(g);});
+ setTimeout(function(){groups.forEach(function(g){g.classList.add('rv-in');});},2500);
 })();
 </script>
 </body>

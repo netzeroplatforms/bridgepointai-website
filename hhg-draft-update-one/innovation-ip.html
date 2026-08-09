@@ -1515,6 +1515,27 @@
 @media (prefers-reduced-motion:reduce){
  .ce-hero-media img,.hhg-hero-media img,.svc-hero-media img,.bio-hero::before{animation:none!important}
 }
+
+/* ---- multiplex strip ------------------------------------------- */
+.mx{max-width:940px;margin:2.8rem auto 0}
+.mx-svg{width:100%;height:auto;display:block}
+.mx-pad{fill:#F0EDE7;stroke:#E2DDD5;stroke-width:1.5}
+.mx-pad.conj{fill:#EDE6DA}
+.mx-membrane{fill:#FFFFFF;stroke:#E2DDD5;stroke-width:1.5}
+.mx-lbl{fill:#8A94A6;font-size:11px}
+.mx-lbl.t{fill:#0B1F3F;font-size:12.5px;font-weight:600}
+.mx-front{fill:#C9AA7D;opacity:.16}
+.mx .mx-front{transform:scaleX(0);transform-origin:64px 0;transition:transform 2.4s cubic-bezier(.3,.7,.3,1) .2s}
+.mx.in .mx-front{transform:scaleX(1)}
+.mx-spot{opacity:0;transition:opacity .45s,fill .45s}
+.mx.in .mx-spot{opacity:1}
+.mx-spot.prot{fill:#0B1F3F}
+.mx-spot.anti{fill:#9A7B33}
+.mx-key{display:flex;gap:26px;justify-content:center;flex-wrap:wrap;margin-top:16px;
+ font-size:12px;color:#4A5568}
+.mx-key i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;vertical-align:middle}
+.mx-key i.p{background:#0B1F3F} .mx-key i.a{background:#9A7B33}
+.mx-note{font-size:11.5px;color:#8A94A6;text-align:center;margin-top:12px;font-style:italic}
 </style>
 
 <div class="hhg-prog" id="hhgProg"></div>
@@ -1592,7 +1613,86 @@
  </div>
  </div>
 
- <div style="margin: 40px auto 24px; max-width: 900px; text-align: center; color: #6b6b6b; font-size: 14px; font-style: italic;">Examples below are illustrative — not the sole focus areas within each category.</div>
+ <div class="mx">
+ <svg class="mx-svg" viewBox="0 0 900 210" role="img"
+   aria-label="Schematic of a multiplex lateral flow strip: sample pad, conjugate pad, and a spotted microarray of 60 targets on a single membrane">
+  <rect class="mx-membrane" x="64" y="46" width="772" height="120" rx="4"/>
+  <rect class="mx-front" x="64" y="46" width="772" height="120" rx="4"/>
+  <rect class="mx-pad" x="8" y="46" width="72" height="120" rx="4"/>
+  <rect class="mx-pad conj" x="96" y="46" width="64" height="120" rx="4"/>
+  <circle class="mx-spot anti" cx="196.0" cy="70" r="4.6" style="transition-delay:0.90s"/>
+  <circle class="mx-spot prot" cx="239.6" cy="70" r="4.6" style="transition-delay:0.96s"/>
+  <circle class="mx-spot prot" cx="283.1" cy="70" r="4.6" style="transition-delay:1.01s"/>
+  <circle class="mx-spot anti" cx="326.7" cy="70" r="4.6" style="transition-delay:1.06s"/>
+  <circle class="mx-spot prot" cx="370.3" cy="70" r="4.6" style="transition-delay:1.12s"/>
+  <circle class="mx-spot prot" cx="413.9" cy="70" r="4.6" style="transition-delay:1.18s"/>
+  <circle class="mx-spot anti" cx="457.4" cy="70" r="4.6" style="transition-delay:1.23s"/>
+  <circle class="mx-spot prot" cx="501.0" cy="70" r="4.6" style="transition-delay:1.29s"/>
+  <circle class="mx-spot prot" cx="544.6" cy="70" r="4.6" style="transition-delay:1.34s"/>
+  <circle class="mx-spot anti" cx="588.1" cy="70" r="4.6" style="transition-delay:1.40s"/>
+  <circle class="mx-spot prot" cx="631.7" cy="70" r="4.6" style="transition-delay:1.45s"/>
+  <circle class="mx-spot prot" cx="675.3" cy="70" r="4.6" style="transition-delay:1.50s"/>
+  <circle class="mx-spot anti" cx="718.9" cy="70" r="4.6" style="transition-delay:1.56s"/>
+  <circle class="mx-spot prot" cx="762.4" cy="70" r="4.6" style="transition-delay:1.61s"/>
+  <circle class="mx-spot prot" cx="806.0" cy="70" r="4.6" style="transition-delay:1.67s"/>
+  <circle class="mx-spot prot" cx="196.0" cy="98" r="4.6" style="transition-delay:0.92s"/>
+  <circle class="mx-spot prot" cx="239.6" cy="98" r="4.6" style="transition-delay:0.98s"/>
+  <circle class="mx-spot anti" cx="283.1" cy="98" r="4.6" style="transition-delay:1.03s"/>
+  <circle class="mx-spot prot" cx="326.7" cy="98" r="4.6" style="transition-delay:1.08s"/>
+  <circle class="mx-spot prot" cx="370.3" cy="98" r="4.6" style="transition-delay:1.14s"/>
+  <circle class="mx-spot anti" cx="413.9" cy="98" r="4.6" style="transition-delay:1.20s"/>
+  <circle class="mx-spot prot" cx="457.4" cy="98" r="4.6" style="transition-delay:1.25s"/>
+  <circle class="mx-spot prot" cx="501.0" cy="98" r="4.6" style="transition-delay:1.31s"/>
+  <circle class="mx-spot anti" cx="544.6" cy="98" r="4.6" style="transition-delay:1.36s"/>
+  <circle class="mx-spot prot" cx="588.1" cy="98" r="4.6" style="transition-delay:1.42s"/>
+  <circle class="mx-spot prot" cx="631.7" cy="98" r="4.6" style="transition-delay:1.47s"/>
+  <circle class="mx-spot anti" cx="675.3" cy="98" r="4.6" style="transition-delay:1.52s"/>
+  <circle class="mx-spot prot" cx="718.9" cy="98" r="4.6" style="transition-delay:1.58s"/>
+  <circle class="mx-spot prot" cx="762.4" cy="98" r="4.6" style="transition-delay:1.64s"/>
+  <circle class="mx-spot anti" cx="806.0" cy="98" r="4.6" style="transition-delay:1.69s"/>
+  <circle class="mx-spot prot" cx="196.0" cy="126" r="4.6" style="transition-delay:0.94s"/>
+  <circle class="mx-spot anti" cx="239.6" cy="126" r="4.6" style="transition-delay:1.00s"/>
+  <circle class="mx-spot prot" cx="283.1" cy="126" r="4.6" style="transition-delay:1.05s"/>
+  <circle class="mx-spot prot" cx="326.7" cy="126" r="4.6" style="transition-delay:1.10s"/>
+  <circle class="mx-spot anti" cx="370.3" cy="126" r="4.6" style="transition-delay:1.16s"/>
+  <circle class="mx-spot prot" cx="413.9" cy="126" r="4.6" style="transition-delay:1.22s"/>
+  <circle class="mx-spot prot" cx="457.4" cy="126" r="4.6" style="transition-delay:1.27s"/>
+  <circle class="mx-spot anti" cx="501.0" cy="126" r="4.6" style="transition-delay:1.33s"/>
+  <circle class="mx-spot prot" cx="544.6" cy="126" r="4.6" style="transition-delay:1.38s"/>
+  <circle class="mx-spot prot" cx="588.1" cy="126" r="4.6" style="transition-delay:1.44s"/>
+  <circle class="mx-spot anti" cx="631.7" cy="126" r="4.6" style="transition-delay:1.49s"/>
+  <circle class="mx-spot prot" cx="675.3" cy="126" r="4.6" style="transition-delay:1.54s"/>
+  <circle class="mx-spot prot" cx="718.9" cy="126" r="4.6" style="transition-delay:1.60s"/>
+  <circle class="mx-spot anti" cx="762.4" cy="126" r="4.6" style="transition-delay:1.66s"/>
+  <circle class="mx-spot prot" cx="806.0" cy="126" r="4.6" style="transition-delay:1.71s"/>
+  <circle class="mx-spot anti" cx="196.0" cy="154" r="4.6" style="transition-delay:0.96s"/>
+  <circle class="mx-spot prot" cx="239.6" cy="154" r="4.6" style="transition-delay:1.02s"/>
+  <circle class="mx-spot prot" cx="283.1" cy="154" r="4.6" style="transition-delay:1.07s"/>
+  <circle class="mx-spot anti" cx="326.7" cy="154" r="4.6" style="transition-delay:1.12s"/>
+  <circle class="mx-spot prot" cx="370.3" cy="154" r="4.6" style="transition-delay:1.18s"/>
+  <circle class="mx-spot prot" cx="413.9" cy="154" r="4.6" style="transition-delay:1.24s"/>
+  <circle class="mx-spot anti" cx="457.4" cy="154" r="4.6" style="transition-delay:1.29s"/>
+  <circle class="mx-spot prot" cx="501.0" cy="154" r="4.6" style="transition-delay:1.35s"/>
+  <circle class="mx-spot prot" cx="544.6" cy="154" r="4.6" style="transition-delay:1.40s"/>
+  <circle class="mx-spot anti" cx="588.1" cy="154" r="4.6" style="transition-delay:1.46s"/>
+  <circle class="mx-spot prot" cx="631.7" cy="154" r="4.6" style="transition-delay:1.51s"/>
+  <circle class="mx-spot prot" cx="675.3" cy="154" r="4.6" style="transition-delay:1.56s"/>
+  <circle class="mx-spot anti" cx="718.9" cy="154" r="4.6" style="transition-delay:1.62s"/>
+  <circle class="mx-spot prot" cx="762.4" cy="154" r="4.6" style="transition-delay:1.68s"/>
+  <circle class="mx-spot prot" cx="806.0" cy="154" r="4.6" style="transition-delay:1.73s"/>
+  <text class="mx-lbl t" x="8" y="34">Sample</text>
+  <text class="mx-lbl t" x="96" y="34">Conjugate</text>
+  <text class="mx-lbl t" x="190" y="34">Spotted microarray, one flow cell</text>
+  <text class="mx-lbl" x="8" y="192">Applied</text>
+  <text class="mx-lbl" x="820" y="192" text-anchor="end">Wick</text>
+ </svg>
+ <div class="mx-key"><span><i class="p"></i>Protein target</span><span><i class="a"></i>Antibody target</span>
+  <span>Dual detection in a single test</span></div>
+ <p class="mx-note">Schematic. The platform spots 20 to 60 individual proteins or antibodies onto one flow cell,
+ with porosity and incubation optimised per target. UK patent pending.</p>
+</div>
+
+<div style="margin: 40px auto 24px; max-width: 900px; text-align: center; color: #6b6b6b; font-size: 14px; font-style: italic;">Examples below are illustrative — not the sole focus areas within each category.</div>
 
  <div class="ip-category-grid">
  <div class="ip-category">
@@ -1760,6 +1860,17 @@
       document.querySelectorAll('.dropdown.open').forEach(function(o){ o.classList.remove('open'); });
     }
   });
+})();
+</script>
+<script>
+(function(){
+ var m=document.querySelector('.mx'); if(!m) return;
+ if(!('IntersectionObserver' in window)){m.classList.add('in');return;}
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){
+   if(!e.isIntersecting) return; e.target.classList.add('in'); io.unobserve(e.target);
+ });},{threshold:.25});
+ io.observe(m);
+ setTimeout(function(){m.classList.add('in');},2500);
 })();
 </script>
 </body>
