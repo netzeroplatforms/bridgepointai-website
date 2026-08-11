@@ -2,3 +2,5 @@ User-agent: *
 Disallow: /heartssight-draft/
 Disallow: /hhg-draft-update-one/
 Disallow: /hhg-draft-notes/
+Disallow: /heartssight-draft-wellbeing/
+Disallow: /heartssight-draft-classiia/
