@@ -1,6 +1,9 @@
+# The draft directories that were listed here until 5 Sep 2026 have been removed
+# from the site entirely. They are not listed any more on purpose: a robots.txt
+# Disallow is public, so naming a path here tells the world exactly where to look
+# while doing nothing to stop anyone reading it.
+#
+# Client draft work does not belong on a public host. If it needs to be shown,
+# it goes behind the Cloudflare Access gate, not behind a Disallow line.
 User-agent: *
-Disallow: /heartssight-draft/
-Disallow: /hhg-draft-update-one/
-Disallow: /hhg-draft-notes/
-Disallow: /heartssight-draft-wellbeing/
-Disallow: /heartssight-draft-classiia/
+Allow: /
